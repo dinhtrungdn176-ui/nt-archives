@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router"; // 👈 SỬA CHỖ NÀY: Thêm Link vào đây
 import { useEffect, useRef } from "react";
-import { photos } from "../data/-photosData";
+import { photos } from "./-photosData";
 
 // THAY ĐỔI 1: Thay thế bằng Public Access Token chuẩn của Mapbox
 const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
