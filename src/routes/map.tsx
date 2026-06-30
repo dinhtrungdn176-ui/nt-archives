@@ -1,10 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router"; // 👈 SỬA CHỖ NÀY: Thêm Link vào đây
 import { useEffect, useRef } from "react";
-import { photos } from "./-photosData";
+import { photos } from "../data/-photosData";
 
 // THAY ĐỔI 1: Thay thế bằng Public Access Token chuẩn của Mapbox
-const MAPBOX_TOKEN =
-  "pk.eyJ1IjoiZnJhZ21lbnRzYnl0cnVuZyIsImEiOiJjbXF5NDc4MDMxdTRjMnBteGhpZzE5Z3BhIn0.az2Z83yvTVI8giqmVFzvSg";
+const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 
 function MapContent() {
   const mapContainerRef = useRef<HTMLDivElement>(null);
