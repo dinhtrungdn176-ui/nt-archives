@@ -105,9 +105,9 @@ import hinhthubonbon from "/src/assets/44.JPG";
 // @ts-ignore
 import hinhthubonnam from "/src/assets/45.JPG";
 // @ts-ignore
-import hinhthubonsau from "/src/assets/46.JPG";
+import hinhthubonsau from "/src/assets/46.jpg";
 // @ts-ignore
-import hinhthubonbay from "/src/assets/47.JPG";
+import hinhthubonbay from "/src/assets/47.jpg";
 // @ts-ignore
 import hinhthubontam from "/src/assets/48.JPG";
 // @ts-ignore
