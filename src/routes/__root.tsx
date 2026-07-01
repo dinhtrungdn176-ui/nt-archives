@@ -282,14 +282,17 @@ function RootComponent() {
             onTouchStart={handleTouchStart}
             style={{
               position: "fixed",
-              left: isDragging || position.x !== 0 ? `${position.x}px` : "auto",
-              top: isDragging || position.y !== 0 ? `${position.y}px` : "auto",
-              bottom: isDragging || position.y !== 0 ? "auto" : "24px",
-              right: isDragging || position.x !== 0 ? "auto" : "24px",
+              // Dùng translate để căn giữa hoặc để yên vị trí cũ,
+              // quan trọng là bỏ các logic 'auto' phức tạp đi
+              left: position.x || 24,
+              top: position.y || "auto",
+              bottom: position.y ? "auto" : "24px",
+              right: position.x ? "auto" : "24px",
               cursor: isDragging ? "grabbing" : "grab",
-              touchAction: "none", // Ngăn trình duyệt cuộn trang khi đang kéo trên điện thoại
+              touchAction: "none",
             }}
-            className="z-[999] flex items-center gap-4 bg-neutral-900/90 backdrop-blur-md text-white px-4 py-2.5 rounded-full shadow-lg border border-neutral-800 font-mono text-[11px] tracking-wider select-none max-w-xs md:max-w-md transition-shadow active:shadow-2xl"
+            // Thêm class này để nó không tự ý phồng to làm vỡ bố cục:
+            className="z-[999] flex items-center gap-2 bg-neutral-900/90 backdrop-blur-md text-white px-3 py-2 rounded-full shadow-lg border border-neutral-800 font-mono text-[10px] tracking-wider select-none shrink-0"
           >
             <button
               onClick={togglePlay}
