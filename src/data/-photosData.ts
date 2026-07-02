@@ -13,134 +13,11 @@ export type Photo = {
   lng: number;
 };
 
-// 2. Nạp toàn bộ các asset hình ảnh thực tế
-// @ts-ignore
-import hinhthunhat from "@/assets/1.webp";
-// @ts-ignore
-import hinhthuhai from "@/assets/2.webp";
-// @ts-ignore
-import hinhthuba from "@/assets/3.webp";
-// @ts-ignore
-import hinhthutu from "@/assets/4.webp";
-// @ts-ignore
-import hinhthunam from "@/assets/5.webp";
-// @ts-ignore
-import hinhthusau from "@/assets/6.webp";
-// @ts-ignore
-import hinhthubay from "@/assets/7.webp";
-// @ts-ignore
-import hinhthutam from "@/assets/8.webp";
-// @ts-ignore
-import hinhthuchin from "@/assets/9.webp";
-// @ts-ignore
-import hinhthumuoi from "@/assets/10.webp";
-// @ts-ignore
-import hinhthumuoimot from "@/assets/11.webp";
-// @ts-ignore
-import hinhthumuoihai from "@/assets/12.webp";
-// @ts-ignore
-import hinhthumuoiba from "@/assets/13.webp";
-// @ts-ignore
-import hinhthumuoibon from "@/assets/14.webp";
-// @ts-ignore
-import hinhthumuoinam from "@/assets/15.webp";
-// @ts-ignore
-import hinhthumuoisau from "@/assets/16.webp";
-// @ts-ignore
-import hinhthumuoibay from "@/assets/17.webp";
-// @ts-ignore
-import hinhthumuoitam from "@/assets/18.webp";
-// @ts-ignore
-import hinhthumuoichin from "@/assets/19.webp";
-// @ts-ignore
-import hinhthuhaimuoi from "@/assets/20.webp";
-// @ts-ignore
-import hinhthuhaimot from "@/assets/21.webp";
-// @ts-ignore
-import hinhthuhaihai from "@/assets/22.webp";
-// @ts-ignore
-import hinhthuhaiba from "@/assets/23.webp";
-// @ts-ignore
-import hinhthuhaitu from "@/assets/24.webp";
-// @ts-ignore
-import hinhthuhailam from "@/assets/25.webp";
-// @ts-ignore
-import hinhthuhaisau from "@/assets/26.webp";
-// @ts-ignore
-import hinhthuhaibay from "@/assets/27.JPEG";
-// @ts-ignore
-import hinhthuhaitam from "@/assets/28.JPEG";
-// @ts-ignore
-import hinhthuhaichin from "@/assets/29.JPEG";
-// @ts-ignore
-import hinhthubamuoi from "@/assets/30.JPEG";
-// @ts-ignore
-import hinhthubamot from "@/assets/31.webp";
-// @ts-ignore
-import hinhthubahai from "@/assets/32.webp";
-// @ts-ignore
-import hinhthubaba from "@/assets/33.webp";
-// @ts-ignore
-import hinhthubatu from "@/assets/34.webp";
-// @ts-ignore
-import hinhthubalam from "@/assets/35.webp";
-// @ts-ignore
-import hinhthubasau from "@/assets/36.webp";
-// @ts-ignore
-import hinhthubabay from "@/assets/37.webp";
-// @ts-ignore
-import hinhthubatam from "@/assets/38.webp";
-// @ts-ignore
-import hinhthubachin from "@/assets/39.webp";
-// @ts-ignore
-import hinhthubonmuoi from "@/assets/40.webp";
-// @ts-ignore
-import hinhthubonmot from "@/assets/41.webp";
-// @ts-ignore
-import hinhthubonhai from "@/assets/42.webp";
-// @ts-ignore
-import hinhthubonba from "@/assets/43.webp";
-// @ts-ignore
-import hinhthubonbon from "@/assets/44.webp";
-// @ts-ignore
-import hinhthubonnam from "@/assets/45.webp";
-// @ts-ignore
-import hinhthubonsau from "@/assets/46.webp";
-// @ts-ignore
-import hinhthubonbay from "@/assets/47.webp";
-// @ts-ignore
-import hinhthubontam from "@/assets/48.webp";
-// @ts-ignore
-import hinhthubonchin from "@/assets/49.webp";
-// @ts-ignore
-import hinhthunammuoi from "@/assets/50.webp";
-// @ts-ignore
-import hinhthunammot from "@/assets/51.webp";
-// @ts-ignore
-import hinhthunamhai from "@/assets/52.webp";
-// @ts-ignore
-import hinhthunamba from "@/assets/53.webp";
-// @ts-ignore
-import hinhthunamtu from "@/assets/54.webp";
-// @ts-ignore
-import hinhthunamlam from "@/assets/55.png";
-// @ts-ignore
-import hinhthunamsau from "@/assets/56.webp";
-// @ts-ignore
-import hinhthunambay from "@/assets/57.webp";
-// @ts-ignore
-import hinhbmt from "@/assets/bmt.webp";
-// @ts-ignore
-import hinhthuyen from "@/assets/anbun.webp";
-// @ts-ignore
-import daklak from "@/assets/cau14.webp";
-//@ts-ignore
-import ve from "@/assets/ve1.webp";
-
-// 3. Mảng dữ liệu Album ảnh chứa thông tin chi tiết
+// 2. Mảng dữ liệu Album ảnh chứa thông tin chi tiết
+// Lưu ý: Các đường dẫn được trỏ thẳng tới thư mục /public/assets/
 export const photos: Photo[] = [
   {
-    image: hinhthunhat,
+    image: "/assets/1.jpeg",
     title: "Một chiều muộn",
     location: "📍 Phổ Ninh, Đức Phổ, Quảng Ngãi, Việt Nam",
     camera: "Canon 750D",
@@ -153,7 +30,7 @@ export const photos: Photo[] = [
     lng: 108.940028,
   },
   {
-    image: hinhthuhai,
+    image: "/assets/2.jpeg",
     title: "Một chiều muộn",
     location: "📍 Phổ Ninh, Đức Phổ, Quảng Ngãi, Việt Nam",
     camera: "Canon 750D",
@@ -166,7 +43,7 @@ export const photos: Photo[] = [
     lng: 108.940028,
   },
   {
-    image: hinhthuba,
+    image: "/assets/3.jpeg",
     title: "Một chiều muộn",
     location: "📍 Phổ Ninh, Đức Phổ, Quảng Ngãi, Việt Nam",
     camera: "Canon 750D",
@@ -179,7 +56,7 @@ export const photos: Photo[] = [
     lng: 108.940028,
   },
   {
-    image: hinhthutu,
+    image: "/assets/4.jpeg",
     title: "Những ngày xanh",
     location: "📍 Hoà Bắc, Đà Nẵng, Việt Nam",
     camera: "Canon 750D",
@@ -192,7 +69,7 @@ export const photos: Photo[] = [
     lng: 108.017417,
   },
   {
-    image: hinhthunam,
+    image: "/assets/5.jpeg",
     title: "Hè rồi",
     location: "📍 Montréal, Québec, Canada",
     camera: "Canon 1200D",
@@ -206,7 +83,7 @@ export const photos: Photo[] = [
     lng: -73.5673,
   },
   {
-    image: hinhthusau,
+    image: "/assets/6.jpeg",
     title: "VHDG - 2024",
     location: "📍 THPT Phan Châu Trinh ,Đà Nẵng, Việt Nam",
     camera: "Canon 70D",
@@ -219,7 +96,7 @@ export const photos: Photo[] = [
     lng: 108.220445,
   },
   {
-    image: hinhthubay,
+    image: "/assets/7.jpeg",
     title: "Vui chơi",
     location: "📍 Hội An Tây, Đà Nẵng, Việt Nam",
     camera: "Sony A7II",
@@ -232,7 +109,7 @@ export const photos: Photo[] = [
     lng: 108.337944,
   },
   {
-    image: hinhthutam,
+    image: "/assets/8.jpeg",
     title: "Hết hơi",
     location: "📍 Làng mộc Kim Bồng, Hội An, Đà Nẵng, Việt Nam",
     camera: "Nikon D700",
@@ -245,7 +122,7 @@ export const photos: Photo[] = [
     lng: 108.325,
   },
   {
-    image: hinhthuchin,
+    image: "/assets/9.jpeg",
     title: "Bến đò",
     location: "📍 Làng mộc Kim Bồng, Hội An, Đà Nẵng, Việt Nam",
     camera: "Nikon D700",
@@ -258,7 +135,7 @@ export const photos: Photo[] = [
     lng: 108.32525,
   },
   {
-    image: hinhthumuoi,
+    image: "/assets/10.jpeg",
     title: "Bến đò",
     location: "📍 Làng mộc Kim Bồng, Hội An, Đà Nẵng, Việt Nam",
     camera: "Nikon D700",
@@ -271,7 +148,7 @@ export const photos: Photo[] = [
     lng: 108.32525,
   },
   {
-    image: hinhthumuoimot,
+    image: "/assets/11.jpeg",
     title: "Bến đò",
     location: "📍 Làng mộc Kim Bồng, Hội An, Đà Nẵng, Việt Nam",
     camera: "Nikon D700",
@@ -284,7 +161,7 @@ export const photos: Photo[] = [
     lng: 108.32525,
   },
   {
-    image: hinhthumuoihai,
+    image: "/assets/12.jpeg",
     title: "Trốn đi cùng Nguyễn Lê Minh Trí",
     location: "📍 Bắc Hải Vân, Lăng Cô, Huế, Việt Nam ",
     camera: "iPhone X",
@@ -297,7 +174,7 @@ export const photos: Photo[] = [
     lng: 108.109694,
   },
   {
-    image: hinhbmt,
+    image: "/assets/bmt.jpeg",
     title: "Đến",
     location: "📍 Bến xe phía bắc Buôn Ma Thuột, Đắk Lắk, Việt Nam",
     camera: "Nikon D700",
@@ -310,7 +187,7 @@ export const photos: Photo[] = [
     lng: 108.074417,
   },
   {
-    image: hinhthumuoiba,
+    image: "/assets/13.jpeg",
     title: "Qua đèo",
     location: "📍 Ga Hải Vân Bắc, Huế, Việt Nam",
     camera: "Canon 750D",
@@ -323,7 +200,7 @@ export const photos: Photo[] = [
     lng: 108.1165,
   },
   {
-    image: hinhthumuoibon,
+    image: "/assets/14.jpeg",
     title: "Vội Vã",
     location: "📍 Nội bài, Hà Nội, Việt Nam",
     camera: "Nikon D700",
@@ -336,7 +213,7 @@ export const photos: Photo[] = [
     lng: -73.5673,
   },
   {
-    image: hinhthumuoinam,
+    image: "/assets/15.jpeg",
     title: "VHDG - 2025",
     location: "📍 THPT Phan Châu Trinh, Đà Nẵng, Việt Nam",
     camera: "Sony ZV-E10",
@@ -349,7 +226,7 @@ export const photos: Photo[] = [
     lng: 108.219639,
   },
   {
-    image: hinhthumuoisau,
+    image: "/assets/16.jpeg",
     title: "Phá hoại",
     location: "📍 THPT Phan Châu Trinh, Đà Nẵng, Việt Nam",
     camera: "Sony ZV-E10",
@@ -362,7 +239,7 @@ export const photos: Photo[] = [
     lng: 108.219639,
   },
   {
-    image: hinhthumuoibay,
+    image: "/assets/17.jpeg",
     title: "Không ngủ",
     location: "📍 Bùi Việt, TP Hồ CHí Minh, Việt Nam",
     camera: "FUjifilm X-T5",
@@ -375,7 +252,7 @@ export const photos: Photo[] = [
     lng: 106.694055,
   },
   {
-    image: hinhthumuoitam,
+    image: "/assets/18.jpeg",
     title: "Không ngủ",
     location: "📍 Bùi Việt, TP Hồ CHí Minh, Việt Nam",
     camera: "Fujifilm X-T5",
@@ -388,7 +265,7 @@ export const photos: Photo[] = [
     lng: 106.692889,
   },
   {
-    image: hinhthumuoichin,
+    image: "/assets/19.jpeg",
     title: "Bến đò Tây Đô",
     location: "📍 Chợ Nổi Cái Răng, Cần Thơ, Việt Nam",
     camera: "Fujifilm X-T5",
@@ -401,7 +278,7 @@ export const photos: Photo[] = [
     lng: 105.744166,
   },
   {
-    image: hinhthuyen,
+    image: "/assets/anbun.jpeg",
     title: "Sông thức",
     location: "📍 Chợ Nổi Cái Răng, Cần Thơ, Việt Nam",
     camera: "Fujifilm X-T5",
@@ -414,7 +291,7 @@ export const photos: Photo[] = [
     lng: 105.75175,
   },
   {
-    image: hinhthuhaimuoi,
+    image: "/assets/20.jpeg",
     title: "Sông thức",
     location: "📍 Chợ Nổi Cái Răng, Cần Thơ, Việt Nam",
     camera: "Fujifilm X-T5",
@@ -427,7 +304,7 @@ export const photos: Photo[] = [
     lng: 105.75175,
   },
   {
-    image: hinhthuhaimot,
+    image: "/assets/21.jpeg",
     title: "Sớm mai",
     location: "📍 Chợ Nổi Cái Răng, Cần Thơ, Việt Nam",
     camera: "Fujifilm X-T5",
@@ -440,7 +317,7 @@ export const photos: Photo[] = [
     lng: 105.753778,
   },
   {
-    image: hinhthuhaihai,
+    image: "/assets/22.jpeg",
     title: "Bình Minh",
     location: "📍 THPT Phan Châu Trinh, Đà Nẵng, Việt Nam",
     camera: "iPhone X",
@@ -453,7 +330,7 @@ export const photos: Photo[] = [
     lng: 108.21999,
   },
   {
-    image: hinhthuhaiba,
+    image: "/assets/23.jpeg",
     title: "Trại PCt 2025",
     location: "📍 Đại học Việt - Hàn, Đà Nẵng, Việt Nam ",
     camera: "Sony A7ii",
@@ -466,7 +343,7 @@ export const photos: Photo[] = [
     lng: 108.252583,
   },
   {
-    image: hinhthuhaitu,
+    image: "/assets/24.jpeg",
     title: "Trại PCT 2025",
     location: "📍 Đại học Việt - Hàn, Đà Nẵng, Việt Nam",
     camera: "Sony A7ii",
@@ -479,7 +356,7 @@ export const photos: Photo[] = [
     lng: 108.252583,
   },
   {
-    image: hinhthuhailam,
+    image: "/assets/25.jpeg",
     title: "Bỏ trốn trong đêm",
     location: "📍 Đèo Mũi Trâu, Đà Nẵng, Việt Nam",
     camera: "",
@@ -492,7 +369,7 @@ export const photos: Photo[] = [
     lng: 107.960667,
   },
   {
-    image: hinhthuhaisau,
+    image: "/assets/26.jpeg",
     title: "Bỏ trốn trong đêm",
     location: "📍 Đèo Mũi Trâu, Đà Nẵng, Việt Nam",
     camera: "",
@@ -505,7 +382,7 @@ export const photos: Photo[] = [
     lng: 107.960667,
   },
   {
-    image: hinhthuhaibay,
+    image: "/assets/27.JPEG",
     title: "Ham vui",
     location: "📍 Lăng cô, Huế, Việt Nam",
     camera: "Sony A7iii",
@@ -518,7 +395,7 @@ export const photos: Photo[] = [
     lng: 108.092694,
   },
   {
-    image: hinhthuhaitam,
+    image: "/assets/28.JPEG",
     title: "Ham vui",
     location: "📍 Lăng cô, Huế, Việt Nam",
     camera: "Sony A7iii",
@@ -531,7 +408,7 @@ export const photos: Photo[] = [
     lng: 108.092694,
   },
   {
-    image: hinhthuhaichin,
+    image: "/assets/29.JPEG",
     title: "Ham vui",
     location: "📍 Lăng cô, Huế, Việt Nam",
     camera: "Sony A7iii",
@@ -544,7 +421,7 @@ export const photos: Photo[] = [
     lng: 108.092694,
   },
   {
-    image: hinhthubamuoi,
+    image: "/assets/30.JPEG",
     title: "Phượt thủ và bất chấp 50cc",
     location: "📍 Lăng cô, Huế, Việt Nam",
     camera: "Sony A7iii",
@@ -557,7 +434,7 @@ export const photos: Photo[] = [
     lng: 108.092694,
   },
   {
-    image: hinhthubamot,
+    image: "/assets/31.jpeg",
     title: "lần đầu Không tưởng",
     location: "📍 Quốc lộ 14, Ia Phang, Chư Pưh, Gia Lai, Việt Nam",
     camera: "Canon 750d",
@@ -571,7 +448,7 @@ export const photos: Photo[] = [
     lng: 108.103611,
   },
   {
-    image: hinhthubahai,
+    image: "/assets/32.jpeg",
     title: "Chặng Pleiku - Buôn Ma Thuột",
     location: "📍 Quốc lộ 14, Ia Le, Gia Lai, Việt Nam",
     camera: "Canon 750d",
@@ -585,7 +462,7 @@ export const photos: Photo[] = [
     lng: 108.092389,
   },
   {
-    image: daklak,
+    image: "/assets/cau14.jpeg",
     title: "Cầu 14 - Km 1668 +00 ĐHCM",
     location: "📍 Ea H'leo, Đắk Lắk, Việt Nam",
     camera: "Canon 750D",
@@ -598,7 +475,7 @@ export const photos: Photo[] = [
     lng: 108.091166,
   },
   {
-    image: hinhthubaba,
+    image: "/assets/33.jpeg",
     title: "Hoàng hôn buông xuống",
     location: "📍 65R9+25V Ea Drăng, Đắk Lắk, Việt Nam",
     camera: "Canon 750D",
@@ -611,7 +488,7 @@ export const photos: Photo[] = [
     lng: 108.154722,
   },
   {
-    image: hinhthubatu,
+    image: "/assets/34.jpeg",
     title: "Như đường chân trời",
     location: "📍 Ea Drăng, Đắk Lắk, Việt Nam",
     camera: "Canon 750D",
@@ -624,7 +501,7 @@ export const photos: Photo[] = [
     lng: 108.167917,
   },
   {
-    image: hinhthubalam,
+    image: "/assets/35.jpeg",
     title: "Đêm đấy điên vl thề",
     location: "📍 467M+CX6 Ea Khăl, Đắk Lắk, Việt Nam",
     camera: "Canon 750",
@@ -638,7 +515,7 @@ export const photos: Photo[] = [
     lng: 108.234889,
   },
   {
-    image: hinhthubasau,
+    image: "/assets/36.jpeg",
     title: "Đại Ngàn",
     location: "📍 Biển hồ Ea Kao, Buôn Ma Thuột, Đắk Lắk, Việt Nam",
     camera: "Canon 750D",
@@ -651,7 +528,7 @@ export const photos: Photo[] = [
     lng: 108.047889,
   },
   {
-    image: hinhthubabay,
+    image: "/assets/37.jpeg",
     title: "Đại Ngàn",
     location: "📍 Biển hồ Ea Kao, Buôn Ma Thuột, Đắk Lắk, Việt Nam",
     camera: "Canon 750D",
@@ -664,7 +541,7 @@ export const photos: Photo[] = [
     lng: 108.047889,
   },
   {
-    image: hinhthubatam,
+    image: "/assets/38.jpeg",
     title: "Chặng về",
     location: "📍 Quốc lộ 19, Đắk Pơ, Gia Lai, Việt Nam",
     camera: "Canon 750D",
@@ -677,7 +554,7 @@ export const photos: Photo[] = [
     lng: 108.476834,
   },
   {
-    image: ve,
+    image: "/assets/ve1.jpeg",
     title: "Chặng về",
     location: "📍 Đèo An Khê, Gia Lai, Việt Nam",
     camera: "Canon 750D",
@@ -690,7 +567,7 @@ export const photos: Photo[] = [
     lng: 108.750083,
   },
   {
-    image: hinhthubachin,
+    image: "/assets/39.jpeg",
     title: "Sắp về đến thật hả",
     location: "📍 QL1A, Hoài Nhơn Bắc, Gia Lai, Việt Nam",
     camera: "Canon 750D",
@@ -704,7 +581,7 @@ export const photos: Photo[] = [
     lng: 109.052833,
   },
   {
-    image: hinhthubonmuoi,
+    image: "/assets/40.jpeg",
     title: "flight",
     location: "📍 Narita Airport, CHiba, Japan",
     camera: "iPhone 14 Pro",
@@ -718,7 +595,7 @@ export const photos: Photo[] = [
     lng: 140.391583,
   },
   {
-    image: hinhthubonmot,
+    image: "/assets/41.jpeg",
     title: "A new country. A new chapter.",
     location: "📍 Montréal Trudeau International Airport , Québec, Canada",
     camera: "Canon 1200D",
@@ -731,7 +608,7 @@ export const photos: Photo[] = [
     lng: -73.750528,
   },
   {
-    image: hinhthubonhai,
+    image: "/assets/42.jpeg",
     title: "Toàn cảnh",
     location:
       "📍 L'Oratoire Saint-Joseph du Mont-Royal, Montréal, Québec, Canada",
@@ -745,7 +622,7 @@ export const photos: Photo[] = [
     lng: -73.617167,
   },
   {
-    image: hinhthubonba,
+    image: "/assets/43.jpeg",
     title: "Toàn cảnh",
     location:
       "📍 L'Oratoire Saint-Joseph du Mont-Royal ,Montréal, Québec, Canada",
@@ -759,7 +636,7 @@ export const photos: Photo[] = [
     lng: -73.617167,
   },
   {
-    image: hinhthubonbon,
+    image: "/assets/44.jpeg",
     title: "Toàn cảnh",
     location:
       "📍 L'Oratoire Saint-Joseph du Mont-Royal ,Montréal, Québec, Canada",
@@ -773,7 +650,7 @@ export const photos: Photo[] = [
     lng: -73.617167,
   },
   {
-    image: hinhthubonnam,
+    image: "/assets/45.jpeg",
     title: "Downtown Montréal",
     location: "📍 Montréal, Québec, Canada",
     camera: "Canon 1200D",
@@ -786,7 +663,7 @@ export const photos: Photo[] = [
     lng: -73.569973,
   },
   {
-    image: hinhthubonsau,
+    image: "/assets/46.jpeg",
     title: "/0:37:16/",
     location: "📍 Oka National Park, Québec, Canada",
     camera: "Canon 1200D",
@@ -799,7 +676,7 @@ export const photos: Photo[] = [
     lng: -74.065972,
   },
   {
-    image: hinhthubonbay,
+    image: "/assets/47.jpeg",
     title: "/0:41:16/",
     location: "📍 Oka National Park, Québec, Canada",
     camera: "Canon 1200D",
@@ -812,7 +689,7 @@ export const photos: Photo[] = [
     lng: -74.064944,
   },
   {
-    image: hinhthubontam,
+    image: "/assets/48.jpeg",
     title: "Dịu hẳn",
     location: "📍 Dollard-Des Ormeaux, Québec, Canada",
     camera: "Fujifilm X-A2",
@@ -825,7 +702,7 @@ export const photos: Photo[] = [
     lng: -73.816472,
   },
   {
-    image: hinhthubonchin,
+    image: "/assets/49.jpeg",
     title: "COn mèo béo",
     location: "📍 Beaconsfield, Québec, Canada",
     camera: "iPhone 14 Pro",
@@ -839,7 +716,7 @@ export const photos: Photo[] = [
     lng: -73.8770195,
   },
   {
-    image: hinhthunammuoi,
+    image: "/assets/50.jpeg",
     title: "Ngẫu hứng",
     location: "📍 Montréal, Québec, Canada",
     camera: "Canon 1200D",
@@ -852,7 +729,7 @@ export const photos: Photo[] = [
     lng: -73.8770195,
   },
   {
-    image: hinhthunammot,
+    image: "/assets/51.jpeg",
     title: "Ngẫu hứng",
     location: "📍 Montréal, Québec, Canada",
     camera: "Canon 1200D",
@@ -865,7 +742,7 @@ export const photos: Photo[] = [
     lng: -73.8770195,
   },
   {
-    image: hinhthunamhai,
+    image: "/assets/52.jpeg",
     title: "Ngẫu hứng",
     location: "📍 Montréal, Québec, Canada",
     camera: "Canon 1200D",
@@ -878,7 +755,7 @@ export const photos: Photo[] = [
     lng: -73.8770195,
   },
   {
-    image: hinhthunamba,
+    image: "/assets/53.jpeg",
     title: "Ngẫu hứng",
     location: "📍 Montréal, Québec, Canada",
     camera: "Canon 1200D",
@@ -891,7 +768,7 @@ export const photos: Photo[] = [
     lng: -73.8770195,
   },
   {
-    image: hinhthunamtu,
+    image: "/assets/54.jpeg",
     title: "Sunset at The Ring",
     location: "📍 Montréal, Québec, Canada",
     camera: "Canon 1200D",
@@ -904,7 +781,7 @@ export const photos: Photo[] = [
     lng: -73.568806,
   },
   {
-    image: hinhthunamlam,
+    image: "/assets/55.jpeg",
     title: "Sunset",
     location: "📍 Old Montréal, Québec, Canada",
     camera: "Canon 1200D",
@@ -917,7 +794,7 @@ export const photos: Photo[] = [
     lng: -73.556139,
   },
   {
-    image: hinhthunamsau,
+    image: "/assets/56.jpeg",
     title: "Old Montréal",
     location: "📍 Montréal, Québec, Canada",
     camera: "Fujifilm X-A2",
@@ -930,7 +807,7 @@ export const photos: Photo[] = [
     lng: -73.5485,
   },
   {
-    image: hinhthunambay,
+    image: "/assets/57.jpeg",
     title: "Old Montréal",
     location: "📍Montréal, Québec, Canada",
     camera: "Fujifilm X-A2 ",
