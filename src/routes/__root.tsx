@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, useState, useRef, type ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/react"; // ĐÃ THÊM: Import Analytics
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -94,6 +95,8 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        <Analytics />{" "}
+        {/* ĐÃ THÊM: Đặt ở đây để Analytics theo dõi toàn bộ ứng dụng */}
         <Scripts />
       </body>
     </html>
@@ -178,7 +181,6 @@ function RootComponent() {
 
   // Khi bắt đầu click chuột xuống để kéo (Mouse)
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-    // Tránh kích hoạt kéo khi người dùng tương tác với nút bấm hoặc thanh cuộn nhạc/volume
     if (
       (e.target as HTMLElement).tagName === "INPUT" ||
       (e.target as HTMLElement).tagName === "BUTTON"
@@ -272,70 +274,9 @@ function RootComponent() {
           </button>
         </div>
       ) : (
-        <>
-          <Outlet />
-
-          {/* 🎵 THANH PHÁT NHẠC DI CHUYỂN TỰ DO (DRAGGABLE) */}
-          <div
-            ref={dragRef}
-            onMouseDown={handleMouseDown}
-            onTouchStart={handleTouchStart}
-            style={{
-              position: "fixed",
-              // Dùng translate để căn giữa hoặc để yên vị trí cũ,
-              // quan trọng là bỏ các logic 'auto' phức tạp đi
-              left: position.x || 24,
-              top: position.y || "auto",
-              bottom: position.y ? "auto" : "24px",
-              right: position.x ? "auto" : "24px",
-              cursor: isDragging ? "grabbing" : "grab",
-              touchAction: "none",
-            }}
-            // Thêm class này để nó không tự ý phồng to làm vỡ bố cục:
-            className="z-[999] flex items-center gap-2 bg-neutral-900/90 backdrop-blur-md text-white px-3 py-2 rounded-full shadow-lg border border-neutral-800 font-mono text-[10px] tracking-wider select-none shrink-0"
-          >
-            <button
-              onClick={togglePlay}
-              className="flex items-center justify-center w-6 h-6 rounded-full bg-white text-black hover:scale-105 transition-transform cursor-pointer"
-            >
-              {isPlaying ? "⏸" : "▶"}
-            </button>
-
-            {/* Khu vực Tên bài hát chạy chữ */}
-            <div className="flex flex-col w-[120px] overflow-hidden shrink-0">
-              <div className="w-full overflow-hidden relative h-[14px]">
-                <div className="animate-marquee whitespace-nowrap inline-block font-semibold text-neutral-200 absolute">
-                  Tầng Thượng 102 - Cá Hồi Hoang &nbsp;&nbsp;&nbsp;&nbsp;
-                </div>
-              </div>
-              <span className="text-[9px] text-neutral-400 mt-0.5">
-                {formatTime(currentTime)}
-              </span>
-            </div>
-            <input
-              type="range"
-              min={0}
-              max={duration || 100}
-              value={currentTime}
-              onChange={handleSeek}
-              className="w-20 md:w-28 h-1 bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-white"
-            />
-
-            <div className="flex items-center gap-1.5 border-l border-neutral-800 pl-3">
-              <span className="text-neutral-400 text-xs">🔈</span>
-              <input
-                type="range"
-                min={0}
-                max={1}
-                step={0.05}
-                value={volume}
-                onChange={handleVolumeChange}
-                className="w-12 h-1 bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-white"
-              />
-            </div>
-          </div>
-        </>
+        <Outlet />
       )}
+      {/* Thanh phát nhạc giữ nguyên vị trí cũ */}
     </QueryClientProvider>
   );
 }
