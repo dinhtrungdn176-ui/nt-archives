@@ -1,8 +1,7 @@
 import "mapbox-gl/dist/mapbox-gl.css";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { photos, type Photo } from "./-photosData";
-
+import { photos, type Photo } from "../data/-photosData";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [

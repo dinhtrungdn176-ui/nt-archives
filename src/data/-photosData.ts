@@ -15,127 +15,127 @@ export type Photo = {
 
 // 2. Nạp toàn bộ các asset hình ảnh thực tế
 // @ts-ignore
-import hinhthunhat from "../assets/1.webp";
+import hinhthunhat from "@/assets/1.webp";
 // @ts-ignore
-import hinhthuhai from "../assets/2.webp";
+import hinhthuhai from "@/assets/2.webp";
 // @ts-ignore
-import hinhthuba from "../assets/3.webp";
+import hinhthuba from "@/assets/3.webp";
 // @ts-ignore
-import hinhthutu from "../assets/4.webp";
+import hinhthutu from "@/assets/4.webp";
 // @ts-ignore
-import hinhthunam from "../assets/5.webp";
+import hinhthunam from "@/assets/5.webp";
 // @ts-ignore
-import hinhthusau from "../assets/6.webp";
+import hinhthusau from "@/assets/6.webp";
 // @ts-ignore
-import hinhthubay from "../assets/7.webp";
+import hinhthubay from "@/assets/7.webp";
 // @ts-ignore
-import hinhthutam from "../assets/8.webp";
+import hinhthutam from "@/assets/8.webp";
 // @ts-ignore
-import hinhthuchin from "../assets/9.webp";
+import hinhthuchin from "@/assets/9.webp";
 // @ts-ignore
-import hinhthumuoi from "../assets/10.webp";
+import hinhthumuoi from "@/assets/10.webp";
 // @ts-ignore
-import hinhthumuoimot from "../assets/11.webp";
+import hinhthumuoimot from "@/assets/11.webp";
 // @ts-ignore
-import hinhthumuoihai from "../assets/12.webp";
+import hinhthumuoihai from "@/assets/12.webp";
 // @ts-ignore
-import hinhthumuoiba from "../assets/13.webp";
+import hinhthumuoiba from "@/assets/13.webp";
 // @ts-ignore
-import hinhthumuoibon from "../assets/14.webp";
+import hinhthumuoibon from "@/assets/14.webp";
 // @ts-ignore
-import hinhthumuoinam from "../assets/15.webp";
+import hinhthumuoinam from "@/assets/15.webp";
 // @ts-ignore
-import hinhthumuoisau from "../assets/16.webp";
+import hinhthumuoisau from "@/assets/16.webp";
 // @ts-ignore
-import hinhthumuoibay from "../assets/17.webp";
+import hinhthumuoibay from "@/assets/17.webp";
 // @ts-ignore
-import hinhthumuoitam from "../assets/18.webp";
+import hinhthumuoitam from "@/assets/18.webp";
 // @ts-ignore
-import hinhthumuoichin from "../assets/19.webp";
+import hinhthumuoichin from "@/assets/19.webp";
 // @ts-ignore
-import hinhthuhaimuoi from "../assets/20.webp";
+import hinhthuhaimuoi from "@/assets/20.webp";
 // @ts-ignore
-import hinhthuhaimot from "../assets/21.webp";
+import hinhthuhaimot from "@/assets/21.webp";
 // @ts-ignore
-import hinhthuhaihai from "../assets/22.webp";
+import hinhthuhaihai from "@/assets/22.webp";
 // @ts-ignore
-import hinhthuhaiba from "../assets/23.webp";
+import hinhthuhaiba from "@/assets/23.webp";
 // @ts-ignore
-import hinhthuhaitu from "../assets/24.webp";
+import hinhthuhaitu from "@/assets/24.webp";
 // @ts-ignore
-import hinhthuhailam from "../assets/25.webp";
+import hinhthuhailam from "@/assets/25.webp";
 // @ts-ignore
-import hinhthuhaisau from "../assets/26.webp";
+import hinhthuhaisau from "@/assets/26.webp";
 // @ts-ignore
-import hinhthuhaibay from "../assets/27.JPEG";
+import hinhthuhaibay from "@/assets/27.JPEG";
 // @ts-ignore
-import hinhthuhaitam from "../assets/28.JPEG";
+import hinhthuhaitam from "@/assets/28.JPEG";
 // @ts-ignore
-import hinhthuhaichin from "../assets/29.JPEG";
+import hinhthuhaichin from "@/assets/29.JPEG";
 // @ts-ignore
-import hinhthubamuoi from "../assets/30.JPEG";
+import hinhthubamuoi from "@/assets/30.JPEG";
 // @ts-ignore
-import hinhthubamot from "../assets/31.webp";
+import hinhthubamot from "@/assets/31.webp";
 // @ts-ignore
-import hinhthubahai from "../assets/32.webp";
+import hinhthubahai from "@/assets/32.webp";
 // @ts-ignore
-import hinhthubaba from "../assets/33.webp";
+import hinhthubaba from "@/assets/33.webp";
 // @ts-ignore
-import hinhthubatu from "../assets/34.webp";
+import hinhthubatu from "@/assets/34.webp";
 // @ts-ignore
-import hinhthubalam from "../assets/35.webp";
+import hinhthubalam from "@/assets/35.webp";
 // @ts-ignore
-import hinhthubasau from "../assets/36.webp";
+import hinhthubasau from "@/assets/36.webp";
 // @ts-ignore
-import hinhthubabay from "../assets/37.webp";
+import hinhthubabay from "@/assets/37.webp";
 // @ts-ignore
-import hinhthubatam from "../assets/38.webp";
+import hinhthubatam from "@/assets/38.webp";
 // @ts-ignore
-import hinhthubachin from "../assets/39.webp";
+import hinhthubachin from "@/assets/39.webp";
 // @ts-ignore
-import hinhthubonmuoi from "../assets/40.webp";
+import hinhthubonmuoi from "@/assets/40.webp";
 // @ts-ignore
-import hinhthubonmot from "../assets/41.webp";
+import hinhthubonmot from "@/assets/41.webp";
 // @ts-ignore
-import hinhthubonhai from "../assets/42.webp";
+import hinhthubonhai from "@/assets/42.webp";
 // @ts-ignore
-import hinhthubonba from "../assets/43.webp";
+import hinhthubonba from "@/assets/43.webp";
 // @ts-ignore
-import hinhthubonbon from "../assets/44.webp";
+import hinhthubonbon from "@/assets/44.webp";
 // @ts-ignore
-import hinhthubonnam from "../assets/45.webp";
+import hinhthubonnam from "@/assets/45.webp";
 // @ts-ignore
-import hinhthubonsau from "../assets/46.webp";
+import hinhthubonsau from "@/assets/46.webp";
 // @ts-ignore
-import hinhthubonbay from "../assets/47.webp";
+import hinhthubonbay from "@/assets/47.webp";
 // @ts-ignore
-import hinhthubontam from "../assets/48.webp";
+import hinhthubontam from "@/assets/48.webp";
 // @ts-ignore
-import hinhthubonchin from "../assets/49.webp";
+import hinhthubonchin from "@/assets/49.webp";
 // @ts-ignore
-import hinhthunammuoi from "../assets/50.webp";
+import hinhthunammuoi from "@/assets/50.webp";
 // @ts-ignore
-import hinhthunammot from "../assets/51.webp";
+import hinhthunammot from "@/assets/51.webp";
 // @ts-ignore
-import hinhthunamhai from "../assets/52.webp";
+import hinhthunamhai from "@/assets/52.webp";
 // @ts-ignore
-import hinhthunamba from "../assets/53.webp";
+import hinhthunamba from "@/assets/53.webp";
 // @ts-ignore
-import hinhthunamtu from "../assets/54.webp";
+import hinhthunamtu from "@/assets/54.webp";
 // @ts-ignore
-import hinhthunamlam from "../assets/55.png";
+import hinhthunamlam from "@/assets/55.png";
 // @ts-ignore
-import hinhthunamsau from "../assets/56.webp";
+import hinhthunamsau from "@/assets/56.webp";
 // @ts-ignore
-import hinhthunambay from "../assets/57.webp";
+import hinhthunambay from "@/assets/57.webp";
 // @ts-ignore
-import hinhbmt from "../assets/bmt.webp";
+import hinhbmt from "@/assets/bmt.webp";
 // @ts-ignore
-import hinhthuyen from "../assets/anbun.webp";
+import hinhthuyen from "@/assets/anbun.webp";
 // @ts-ignore
-import daklak from "../assets/cau14.webp";
+import daklak from "@/assets/cau14.webp";
 //@ts-ignore
-import ve from "../assets/ve1.webp";
+import ve from "@/assets/ve1.webp";
 
 // 3. Mảng dữ liệu Album ảnh chứa thông tin chi tiết
 export const photos: Photo[] = [
