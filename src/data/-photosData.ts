@@ -17,7 +17,8 @@ export type Photo = {
 // Lưu ý: Các đường dẫn được trỏ thẳng tới thư mục /public/assets/
 export const photos: Photo[] = [
   {
-    image: "/assets/1.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032353/1_ecbbkw.jpg",
     title: "Một chiều muộn",
     location: "📍 Phổ Ninh, Đức Phổ, Quảng Ngãi, Việt Nam",
     camera: "Canon 750D",
@@ -30,7 +31,8 @@ export const photos: Photo[] = [
     lng: 108.940028,
   },
   {
-    image: "/assets/2.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032353/2_tvjshq.jpg",
     title: "Một chiều muộn",
     location: "📍 Phổ Ninh, Đức Phổ, Quảng Ngãi, Việt Nam",
     camera: "Canon 750D",
@@ -43,7 +45,8 @@ export const photos: Photo[] = [
     lng: 108.940028,
   },
   {
-    image: "/assets/3.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032354/3_tq5z5n.jpg",
     title: "Một chiều muộn",
     location: "📍 Phổ Ninh, Đức Phổ, Quảng Ngãi, Việt Nam",
     camera: "Canon 750D",
@@ -56,7 +59,8 @@ export const photos: Photo[] = [
     lng: 108.940028,
   },
   {
-    image: "/assets/4.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032363/4_gtsam9.jpg",
     title: "Những ngày xanh",
     location: "📍 Hoà Bắc, Đà Nẵng, Việt Nam",
     camera: "Canon 750D",
@@ -69,7 +73,8 @@ export const photos: Photo[] = [
     lng: 108.017417,
   },
   {
-    image: "/assets/5.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032359/5_w6jyb4.jpg",
     title: "Hè rồi",
     location: "📍 Montréal, Québec, Canada",
     camera: "Canon 1200D",
@@ -83,7 +88,8 @@ export const photos: Photo[] = [
     lng: -73.5673,
   },
   {
-    image: "/assets/6.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032381/6_rupqop.jpg",
     title: "VHDG - 2024",
     location: "📍 THPT Phan Châu Trinh ,Đà Nẵng, Việt Nam",
     camera: "Canon 70D",
@@ -96,7 +102,8 @@ export const photos: Photo[] = [
     lng: 108.220445,
   },
   {
-    image: "/assets/7.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032437/7_bezodq.jpg",
     title: "Vui chơi",
     location: "📍 Hội An Tây, Đà Nẵng, Việt Nam",
     camera: "Sony A7II",
@@ -109,7 +116,8 @@ export const photos: Photo[] = [
     lng: 108.337944,
   },
   {
-    image: "/assets/8.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032438/8_wiytbx.jpg",
     title: "Hết hơi",
     location: "📍 Làng mộc Kim Bồng, Hội An, Đà Nẵng, Việt Nam",
     camera: "Nikon D700",
@@ -122,7 +130,8 @@ export const photos: Photo[] = [
     lng: 108.325,
   },
   {
-    image: "/assets/9.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032439/9_ta8hxe.jpg",
     title: "Bến đò",
     location: "📍 Làng mộc Kim Bồng, Hội An, Đà Nẵng, Việt Nam",
     camera: "Nikon D700",
@@ -135,7 +144,8 @@ export const photos: Photo[] = [
     lng: 108.32525,
   },
   {
-    image: "/assets/10.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032441/10_pvzayn.jpg",
     title: "Bến đò",
     location: "📍 Làng mộc Kim Bồng, Hội An, Đà Nẵng, Việt Nam",
     camera: "Nikon D700",
@@ -148,7 +158,8 @@ export const photos: Photo[] = [
     lng: 108.32525,
   },
   {
-    image: "/assets/11.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032441/11_antqiq.jpg",
     title: "Bến đò",
     location: "📍 Làng mộc Kim Bồng, Hội An, Đà Nẵng, Việt Nam",
     camera: "Nikon D700",
@@ -161,7 +172,8 @@ export const photos: Photo[] = [
     lng: 108.32525,
   },
   {
-    image: "/assets/12.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032446/12_w6fmwg.jpg",
     title: "Trốn đi cùng Nguyễn Lê Minh Trí",
     location: "📍 Bắc Hải Vân, Lăng Cô, Huế, Việt Nam ",
     camera: "iPhone X",
@@ -174,7 +186,8 @@ export const photos: Photo[] = [
     lng: 108.109694,
   },
   {
-    image: "/assets/bmt.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032558/bmt_mo3v6w.jpg",
     title: "Đến",
     location: "📍 Bến xe phía bắc Buôn Ma Thuột, Đắk Lắk, Việt Nam",
     camera: "Nikon D700",
@@ -187,7 +200,8 @@ export const photos: Photo[] = [
     lng: 108.074417,
   },
   {
-    image: "/assets/13.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032446/13_ag6cy1.jpg",
     title: "Qua đèo",
     location: "📍 Ga Hải Vân Bắc, Huế, Việt Nam",
     camera: "Canon 750D",
@@ -200,7 +214,8 @@ export const photos: Photo[] = [
     lng: 108.1165,
   },
   {
-    image: "/assets/14.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032446/14_ro7tak.jpg",
     title: "Vội Vã",
     location: "📍 Nội bài, Hà Nội, Việt Nam",
     camera: "Nikon D700",
@@ -213,7 +228,8 @@ export const photos: Photo[] = [
     lng: -73.5673,
   },
   {
-    image: "/assets/15.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032448/15_okzjgu.jpg",
     title: "VHDG - 2025",
     location: "📍 THPT Phan Châu Trinh, Đà Nẵng, Việt Nam",
     camera: "Sony ZV-E10",
@@ -226,7 +242,8 @@ export const photos: Photo[] = [
     lng: 108.219639,
   },
   {
-    image: "/assets/16.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032451/16_klkk3l.jpg",
     title: "Phá hoại",
     location: "📍 THPT Phan Châu Trinh, Đà Nẵng, Việt Nam",
     camera: "Sony ZV-E10",
@@ -239,7 +256,8 @@ export const photos: Photo[] = [
     lng: 108.219639,
   },
   {
-    image: "/assets/17.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032451/17_stgmcv.jpg",
     title: "Không ngủ",
     location: "📍 Bùi Việt, TP Hồ CHí Minh, Việt Nam",
     camera: "FUjifilm X-T5",
@@ -252,7 +270,8 @@ export const photos: Photo[] = [
     lng: 106.694055,
   },
   {
-    image: "/assets/18.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783033701/18_yex95c.jpg",
     title: "Không ngủ",
     location: "📍 Bùi Việt, TP Hồ CHí Minh, Việt Nam",
     camera: "Fujifilm X-T5",
@@ -265,7 +284,8 @@ export const photos: Photo[] = [
     lng: 106.692889,
   },
   {
-    image: "/assets/19.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032456/19_thskva.jpg",
     title: "Bến đò Tây Đô",
     location: "📍 Chợ Nổi Cái Răng, Cần Thơ, Việt Nam",
     camera: "Fujifilm X-T5",
@@ -278,7 +298,8 @@ export const photos: Photo[] = [
     lng: 105.744166,
   },
   {
-    image: "/assets/anbun.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032558/anbun_vcffqe.jpg",
     title: "Sông thức",
     location: "📍 Chợ Nổi Cái Răng, Cần Thơ, Việt Nam",
     camera: "Fujifilm X-T5",
@@ -291,7 +312,8 @@ export const photos: Photo[] = [
     lng: 105.75175,
   },
   {
-    image: "/assets/20.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032456/20_icsvaj.jpg",
     title: "Sông thức",
     location: "📍 Chợ Nổi Cái Răng, Cần Thơ, Việt Nam",
     camera: "Fujifilm X-T5",
@@ -304,7 +326,8 @@ export const photos: Photo[] = [
     lng: 105.75175,
   },
   {
-    image: "/assets/21.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032460/21_s4mnmo.jpg",
     title: "Sớm mai",
     location: "📍 Chợ Nổi Cái Răng, Cần Thơ, Việt Nam",
     camera: "Fujifilm X-T5",
@@ -317,7 +340,8 @@ export const photos: Photo[] = [
     lng: 105.753778,
   },
   {
-    image: "/assets/22.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032461/22_traafa.jpg",
     title: "Bình Minh",
     location: "📍 THPT Phan Châu Trinh, Đà Nẵng, Việt Nam",
     camera: "iPhone X",
@@ -330,7 +354,8 @@ export const photos: Photo[] = [
     lng: 108.21999,
   },
   {
-    image: "/assets/23.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032461/23_vzdkdc.jpg",
     title: "Trại PCt 2025",
     location: "📍 Đại học Việt - Hàn, Đà Nẵng, Việt Nam ",
     camera: "Sony A7ii",
@@ -343,7 +368,8 @@ export const photos: Photo[] = [
     lng: 108.252583,
   },
   {
-    image: "/assets/24.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032467/24_qgfdha.jpg",
     title: "Trại PCT 2025",
     location: "📍 Đại học Việt - Hàn, Đà Nẵng, Việt Nam",
     camera: "Sony A7ii",
@@ -356,7 +382,8 @@ export const photos: Photo[] = [
     lng: 108.252583,
   },
   {
-    image: "/assets/25.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032467/25_hatwth.jpg",
     title: "Bỏ trốn trong đêm",
     location: "📍 Đèo Mũi Trâu, Đà Nẵng, Việt Nam",
     camera: "",
@@ -369,7 +396,8 @@ export const photos: Photo[] = [
     lng: 107.960667,
   },
   {
-    image: "/assets/26.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032472/26_f7b0eg.jpg",
     title: "Bỏ trốn trong đêm",
     location: "📍 Đèo Mũi Trâu, Đà Nẵng, Việt Nam",
     camera: "",
@@ -382,7 +410,8 @@ export const photos: Photo[] = [
     lng: 107.960667,
   },
   {
-    image: "/assets/27.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032474/27_ymkqwt.jpg",
     title: "Ham vui",
     location: "📍 Lăng cô, Huế, Việt Nam",
     camera: "Sony A7iii",
@@ -395,7 +424,8 @@ export const photos: Photo[] = [
     lng: 108.092694,
   },
   {
-    image: "/assets/28.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032475/28_tuyajk.jpg",
     title: "Ham vui",
     location: "📍 Lăng cô, Huế, Việt Nam",
     camera: "Sony A7iii",
@@ -408,7 +438,8 @@ export const photos: Photo[] = [
     lng: 108.092694,
   },
   {
-    image: "/assets/29.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032477/29_guz5xe.jpg",
     title: "Ham vui",
     location: "📍 Lăng cô, Huế, Việt Nam",
     camera: "Sony A7iii",
@@ -421,7 +452,8 @@ export const photos: Photo[] = [
     lng: 108.092694,
   },
   {
-    image: "/assets/30.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032484/30_rbptkl.jpg",
     title: "Phượt thủ và bất chấp 50cc",
     location: "📍 Lăng cô, Huế, Việt Nam",
     camera: "Sony A7iii",
@@ -434,7 +466,8 @@ export const photos: Photo[] = [
     lng: 108.092694,
   },
   {
-    image: "/assets/31.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032490/31_p8xwiz.jpg",
     title: "lần đầu Không tưởng",
     location: "📍 Quốc lộ 14, Ia Phang, Chư Pưh, Gia Lai, Việt Nam",
     camera: "Canon 750d",
@@ -448,7 +481,8 @@ export const photos: Photo[] = [
     lng: 108.103611,
   },
   {
-    image: "/assets/32.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032498/32_ugar99.jpg",
     title: "Chặng Pleiku - Buôn Ma Thuột",
     location: "📍 Quốc lộ 14, Ia Le, Gia Lai, Việt Nam",
     camera: "Canon 750d",
@@ -462,7 +496,8 @@ export const photos: Photo[] = [
     lng: 108.092389,
   },
   {
-    image: "/assets/cau14.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032561/cau14_yjynmh.jpg",
     title: "Cầu 14 - Km 1668 +00 ĐHCM",
     location: "📍 Ea H'leo, Đắk Lắk, Việt Nam",
     camera: "Canon 750D",
@@ -475,7 +510,8 @@ export const photos: Photo[] = [
     lng: 108.091166,
   },
   {
-    image: "/assets/33.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032497/33_m7vzgx.jpg",
     title: "Hoàng hôn buông xuống",
     location: "📍 65R9+25V Ea Drăng, Đắk Lắk, Việt Nam",
     camera: "Canon 750D",
@@ -488,7 +524,8 @@ export const photos: Photo[] = [
     lng: 108.154722,
   },
   {
-    image: "/assets/34.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032497/34_tbqnq9.jpg",
     title: "Như đường chân trời",
     location: "📍 Ea Drăng, Đắk Lắk, Việt Nam",
     camera: "Canon 750D",
@@ -501,7 +538,8 @@ export const photos: Photo[] = [
     lng: 108.167917,
   },
   {
-    image: "/assets/35.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783033981/35_dnohbm.jpg",
     title: "Đêm đấy điên vl thề",
     location: "📍 467M+CX6 Ea Khăl, Đắk Lắk, Việt Nam",
     camera: "Canon 750",
@@ -515,7 +553,8 @@ export const photos: Photo[] = [
     lng: 108.234889,
   },
   {
-    image: "/assets/36.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032501/36_gh9thn.jpg",
     title: "Đại Ngàn",
     location: "📍 Biển hồ Ea Kao, Buôn Ma Thuột, Đắk Lắk, Việt Nam",
     camera: "Canon 750D",
@@ -528,7 +567,8 @@ export const photos: Photo[] = [
     lng: 108.047889,
   },
   {
-    image: "/assets/37.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032501/37_dkssre.jpg",
     title: "Đại Ngàn",
     location: "📍 Biển hồ Ea Kao, Buôn Ma Thuột, Đắk Lắk, Việt Nam",
     camera: "Canon 750D",
@@ -541,7 +581,8 @@ export const photos: Photo[] = [
     lng: 108.047889,
   },
   {
-    image: "/assets/38.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032503/38_cbobys.jpg",
     title: "Chặng về",
     location: "📍 Quốc lộ 19, Đắk Pơ, Gia Lai, Việt Nam",
     camera: "Canon 750D",
@@ -554,7 +595,8 @@ export const photos: Photo[] = [
     lng: 108.476834,
   },
   {
-    image: "/assets/ve1.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032582/ve1_oewfmt.jpg",
     title: "Chặng về",
     location: "📍 Đèo An Khê, Gia Lai, Việt Nam",
     camera: "Canon 750D",
@@ -567,7 +609,8 @@ export const photos: Photo[] = [
     lng: 108.750083,
   },
   {
-    image: "/assets/39.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032512/39_mxggjj.jpg",
     title: "Sắp về đến thật hả",
     location: "📍 QL1A, Hoài Nhơn Bắc, Gia Lai, Việt Nam",
     camera: "Canon 750D",
@@ -581,11 +624,12 @@ export const photos: Photo[] = [
     lng: 109.052833,
   },
   {
-    image: "/assets/40.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032502/40_a4uuqh.jpg",
     title: "flight",
     location: "📍 Narita Airport, CHiba, Japan",
     camera: "iPhone 14 Pro",
-    lens: "26mm f/5",
+    lens: "26mm",
     iso: "100",
     shutterSpeed: "1/125s",
     date: "October 23 2025",
@@ -595,11 +639,12 @@ export const photos: Photo[] = [
     lng: 140.391583,
   },
   {
-    image: "/assets/41.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032502/41_o0ct5k.jpg",
     title: "A new country. A new chapter.",
     location: "📍 Montréal Trudeau International Airport , Québec, Canada",
-    camera: "Canon 1200D",
-    lens: "Canon EF 50mm f/1.8 II",
+    camera: "iPhone 14 Pro",
+    lens: "26mm",
     iso: "100",
     shutterSpeed: "1/125s",
     date: "June 23 2026",
@@ -608,7 +653,8 @@ export const photos: Photo[] = [
     lng: -73.750528,
   },
   {
-    image: "/assets/42.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032511/42_rybila.jpg",
     title: "Toàn cảnh",
     location:
       "📍 L'Oratoire Saint-Joseph du Mont-Royal, Montréal, Québec, Canada",
@@ -622,7 +668,8 @@ export const photos: Photo[] = [
     lng: -73.617167,
   },
   {
-    image: "/assets/43.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032510/43_qvvkzo.jpg",
     title: "Toàn cảnh",
     location:
       "📍 L'Oratoire Saint-Joseph du Mont-Royal ,Montréal, Québec, Canada",
@@ -636,7 +683,8 @@ export const photos: Photo[] = [
     lng: -73.617167,
   },
   {
-    image: "/assets/44.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032512/44_clseo1.jpg",
     title: "Toàn cảnh",
     location:
       "📍 L'Oratoire Saint-Joseph du Mont-Royal ,Montréal, Québec, Canada",
@@ -650,7 +698,8 @@ export const photos: Photo[] = [
     lng: -73.617167,
   },
   {
-    image: "/assets/45.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032511/45_gcezvp.jpg",
     title: "Downtown Montréal",
     location: "📍 Montréal, Québec, Canada",
     camera: "Canon 1200D",
@@ -663,7 +712,8 @@ export const photos: Photo[] = [
     lng: -73.569973,
   },
   {
-    image: "/assets/46.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032532/46_li3mhc.jpg",
     title: "/0:37:16/",
     location: "📍 Oka National Park, Québec, Canada",
     camera: "Canon 1200D",
@@ -676,7 +726,8 @@ export const photos: Photo[] = [
     lng: -74.065972,
   },
   {
-    image: "/assets/47.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032533/47_g5wvvo.jpg",
     title: "/0:41:16/",
     location: "📍 Oka National Park, Québec, Canada",
     camera: "Canon 1200D",
@@ -689,7 +740,8 @@ export const photos: Photo[] = [
     lng: -74.064944,
   },
   {
-    image: "/assets/48.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032539/48_vtobzb.jpg",
     title: "Dịu hẳn",
     location: "📍 Dollard-Des Ormeaux, Québec, Canada",
     camera: "Fujifilm X-A2",
@@ -702,7 +754,8 @@ export const photos: Photo[] = [
     lng: -73.816472,
   },
   {
-    image: "/assets/49.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032541/49_tyoqtm.jpg",
     title: "COn mèo béo",
     location: "📍 Beaconsfield, Québec, Canada",
     camera: "iPhone 14 Pro",
@@ -716,11 +769,12 @@ export const photos: Photo[] = [
     lng: -73.8770195,
   },
   {
-    image: "/assets/50.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032544/50_vr4hjd.jpg",
     title: "Ngẫu hứng",
-    location: "📍 Montréal, Québec, Canada",
+    location: "📍 Beaconsfield, Québec, Canada",
     camera: "Canon 1200D",
-    lens: "Canon EF 50mm f/1.8 II",
+    lens: "50mm f/5.6",
     iso: "100",
     shutterSpeed: "1/125s",
     date: "June 11 2026",
@@ -729,11 +783,12 @@ export const photos: Photo[] = [
     lng: -73.8770195,
   },
   {
-    image: "/assets/51.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032555/51_y9tngn.jpg",
     title: "Ngẫu hứng",
     location: "📍 Montréal, Québec, Canada",
     camera: "Canon 1200D",
-    lens: "Canon EF 50mm f/1.8 II",
+    lens: "26mm f/5.6",
     iso: "100",
     shutterSpeed: "1/125s",
     date: "June 11 2026",
@@ -742,11 +797,12 @@ export const photos: Photo[] = [
     lng: -73.8770195,
   },
   {
-    image: "/assets/52.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032556/52_o7pcw3.jpg",
     title: "Ngẫu hứng",
     location: "📍 Montréal, Québec, Canada",
     camera: "Canon 1200D",
-    lens: "Canon EF 50mm f/1.8 II",
+    lens: "50mm f/5.6",
     iso: "100",
     shutterSpeed: "1/125s",
     date: "June 11 2026",
@@ -755,11 +811,12 @@ export const photos: Photo[] = [
     lng: -73.8770195,
   },
   {
-    image: "/assets/53.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032556/53_uh8rlf.jpg",
     title: "Ngẫu hứng",
     location: "📍 Montréal, Québec, Canada",
     camera: "Canon 1200D",
-    lens: "Canon EF 50mm f/1.8 II",
+    lens: "50mm f/5.6",
     iso: "100",
     shutterSpeed: "1/125s",
     date: "June 11 2026",
@@ -768,7 +825,8 @@ export const photos: Photo[] = [
     lng: -73.8770195,
   },
   {
-    image: "/assets/54.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032555/54_z2u76c.jpg",
     title: "Sunset at The Ring",
     location: "📍 Montréal, Québec, Canada",
     camera: "Canon 1200D",
@@ -781,11 +839,12 @@ export const photos: Photo[] = [
     lng: -73.568806,
   },
   {
-    image: "/assets/55.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032556/55_djcwhe.jpg",
     title: "Sunset",
     location: "📍 Old Montréal, Québec, Canada",
     camera: "Canon 1200D",
-    lens: "50mm f/5.6",
+    lens: "30mm f/5.6",
     iso: "100",
     shutterSpeed: "1/125s",
     date: "June 23 2026",
@@ -794,7 +853,8 @@ export const photos: Photo[] = [
     lng: -73.556139,
   },
   {
-    image: "/assets/56.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032559/56_mzwh2v.jpg",
     title: "Old Montréal",
     location: "📍 Montréal, Québec, Canada",
     camera: "Fujifilm X-A2",
@@ -807,7 +867,8 @@ export const photos: Photo[] = [
     lng: -73.5485,
   },
   {
-    image: "/assets/57.jpeg",
+    image:
+      "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032562/57_i3ygnh.jpg",
     title: "Old Montréal",
     location: "📍Montréal, Québec, Canada",
     camera: "Fujifilm X-A2 ",
