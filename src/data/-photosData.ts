@@ -382,7 +382,7 @@ export const photos: Photo[] = [
     lng: 107.960667,
   },
   {
-    image: "/assets/27.JPEG",
+    image: "/assets/27.jpeg",
     title: "Ham vui",
     location: "📍 Lăng cô, Huế, Việt Nam",
     camera: "Sony A7iii",
@@ -395,7 +395,7 @@ export const photos: Photo[] = [
     lng: 108.092694,
   },
   {
-    image: "/assets/28.JPEG",
+    image: "/assets/28.jpeg",
     title: "Ham vui",
     location: "📍 Lăng cô, Huế, Việt Nam",
     camera: "Sony A7iii",
@@ -408,7 +408,7 @@ export const photos: Photo[] = [
     lng: 108.092694,
   },
   {
-    image: "/assets/29.JPEG",
+    image: "/assets/29.jpeg",
     title: "Ham vui",
     location: "📍 Lăng cô, Huế, Việt Nam",
     camera: "Sony A7iii",
@@ -421,7 +421,7 @@ export const photos: Photo[] = [
     lng: 108.092694,
   },
   {
-    image: "/assets/30.JPEG",
+    image: "/assets/30.jpeg",
     title: "Phượt thủ và bất chấp 50cc",
     location: "📍 Lăng cô, Huế, Việt Nam",
     camera: "Sony A7iii",
