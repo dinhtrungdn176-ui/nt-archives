@@ -8,7 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, useState, useRef, type ReactNode } from "react";
-import { Analytics } from "@vercel/analytics/react"; // ĐÃ THÊM: Import Analytics
+import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -95,8 +95,7 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
-        <Analytics />{" "}
-        {/* ĐÃ THÊM: Đặt ở đây để Analytics theo dõi toàn bộ ứng dụng */}
+        <Analytics />
         <Scripts />
       </body>
     </html>
@@ -105,15 +104,11 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-
-  // States quản lý màn hình chào & trình phát nhạc
   const [hasEntered, setHasEntered] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(0.5);
-
-  // States quản lý việc kéo thả (Dragging)
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
 
@@ -121,20 +116,15 @@ function RootComponent() {
   const dragRef = useRef<HTMLDivElement | null>(null);
   const offsetRef = useRef({ x: 0, y: 0 });
 
-  // Khởi tạo đối tượng Audio một lần duy nhất
   useEffect(() => {
     const audio = new Audio("/mysong.mp3");
     audio.loop = true;
     audio.volume = volume;
-
     const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
     const handleLoadedMetadata = () => setDuration(audio.duration);
-
     audio.addEventListener("timeupdate", handleTimeUpdate);
     audio.addEventListener("loadedmetadata", handleLoadedMetadata);
-
     audioRef.current = audio;
-
     return () => {
       audio.removeEventListener("timeupdate", handleTimeUpdate);
       audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
@@ -142,76 +132,38 @@ function RootComponent() {
     };
   }, []);
 
-  // Xử lý sự kiện di chuyển chuột/tay khi đang kéo
   useEffect(() => {
     const handleMove = (clientX: number, clientY: number) => {
       if (!isDragging || !dragRef.current) return;
-
       let newX = clientX - offsetRef.current.x;
       let newY = clientY - offsetRef.current.y;
-
       const rect = dragRef.current.getBoundingClientRect();
-
-      // Giới hạn trong phạm vi màn hình
       newX = Math.max(0, Math.min(newX, window.innerWidth - rect.width));
       newY = Math.max(0, Math.min(newY, window.innerHeight - rect.height));
-
       setPosition({ x: newX, y: newY });
     };
-
     const handleMouseMove = (e: MouseEvent) => handleMove(e.clientX, e.clientY);
-    const handleTouchMove = (e: TouchEvent) =>
-      handleMove(e.touches[0].clientX, e.touches[0].clientY);
     const handleMouseUp = () => setIsDragging(false);
-
     if (isDragging) {
       window.addEventListener("mousemove", handleMouseMove);
       window.addEventListener("mouseup", handleMouseUp);
-      window.addEventListener("touchmove", handleTouchMove, { passive: false });
-      window.addEventListener("touchend", handleMouseUp);
     }
-
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseup", handleMouseUp);
-      window.removeEventListener("touchmove", handleTouchMove);
-      window.removeEventListener("touchend", handleMouseUp);
     };
   }, [isDragging]);
 
-  // Khi bắt đầu click chuột xuống để kéo (Mouse)
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     if (
       (e.target as HTMLElement).tagName === "INPUT" ||
       (e.target as HTMLElement).tagName === "BUTTON"
-    ) {
+    )
       return;
-    }
     setIsDragging(true);
     if (dragRef.current) {
       const rect = dragRef.current.getBoundingClientRect();
-      offsetRef.current = {
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      };
-    }
-  };
-
-  // Khi bắt đầu chạm tay để kéo (Mobile Touch)
-  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    if (
-      (e.target as HTMLElement).tagName === "INPUT" ||
-      (e.target as HTMLElement).tagName === "BUTTON"
-    ) {
-      return;
-    }
-    setIsDragging(true);
-    if (dragRef.current && e.touches.length > 0) {
-      const rect = dragRef.current.getBoundingClientRect();
-      offsetRef.current = {
-        x: e.touches[0].clientX - rect.left,
-        y: e.touches[0].clientY - rect.top,
-      };
+      offsetRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
     }
   };
 
@@ -221,7 +173,7 @@ function RootComponent() {
       audioRef.current
         .play()
         .then(() => setIsPlaying(true))
-        .catch((err) => console.log("Tự động phát bị chặn:", err));
+        .catch((err) => console.log(err));
     }
   };
 
@@ -233,22 +185,6 @@ function RootComponent() {
     } else {
       audioRef.current.play();
       setIsPlaying(true);
-    }
-  };
-
-  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const time = parseFloat(e.target.value);
-    if (audioRef.current) {
-      audioRef.current.currentTime = time;
-      setCurrentTime(time);
-    }
-  };
-
-  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const v = parseFloat(e.target.value);
-    setVolume(v);
-    if (audioRef.current) {
-      audioRef.current.volume = v;
     }
   };
 
@@ -268,15 +204,41 @@ function RootComponent() {
           </h1>
           <button
             onClick={handleEnter}
-            className="text-xs tracking-widest uppercase border border-neutral-700 px-6 py-3 hover:bg-white hover:text-black transition-all duration-500 ease-in-out"
+            className="text-xs tracking-widest uppercase border border-neutral-700 px-6 py-3 hover:bg-white hover:text-black transition-all"
           >
             Bước vào / Enter
           </button>
         </div>
       ) : (
-        <Outlet />
+        <>
+          <Outlet />
+          <div
+            ref={dragRef}
+            onMouseDown={handleMouseDown}
+            style={{
+              position: "fixed",
+              left: position.x || 24,
+              top: position.y || "auto",
+              bottom: position.y ? "auto" : "24px",
+              right: position.x ? "auto" : "24px",
+              cursor: isDragging ? "grabbing" : "grab",
+              zIndex: 999,
+            }}
+            className="flex items-center gap-2 bg-neutral-900/90 backdrop-blur-md text-white px-3 py-2 rounded-full shadow-lg border border-neutral-800 font-mono text-[10px] select-none"
+          >
+            <button
+              onClick={togglePlay}
+              className="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center"
+            >
+              {isPlaying ? "⏸" : "▶"}
+            </button>
+            <div className="flex flex-col w-[100px]">
+              <span className="truncate">Tầng Thượng 102 - Cá Hồi Hoang</span>
+              <span>{formatTime(currentTime)}</span>
+            </div>
+          </div>
+        </>
       )}
-      {/* Thanh phát nhạc giữ nguyên vị trí cũ */}
     </QueryClientProvider>
   );
 }
