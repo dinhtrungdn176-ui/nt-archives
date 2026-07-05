@@ -30,7 +30,7 @@ function MapContent() {
         mapRef.current = new mapbox.Map({
           container: mapContainerRef.current,
           // THAY ĐỔI 1: Chuyển sang style cơ bản nhất "outdoors-v12" hoặc "light-v11" chuẩn
-          style: "mapbox://styles/mapbox/light-v11",
+          style: "mapbox://styles/fragmentsbytrung/cmr7h7ce3000l01qih967arbd",
           center: [-73.5673, 45.5017],
           zoom: 11,
           trackResize: true,
