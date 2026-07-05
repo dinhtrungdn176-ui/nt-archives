@@ -223,9 +223,9 @@ export const photos: Photo[] = [
     iso: "400",
     shutterSpeed: "1/125s",
     date: "December 19 2024",
-    caption: "Chuyến bay trong đêm",
-    lat: 45.5017,
-    lng: -73.5673,
+    caption: "Chuyến bay vội vã trong đêm",
+    lat: 21.21525,
+    lng: 105.80394,
   },
   {
     image:
