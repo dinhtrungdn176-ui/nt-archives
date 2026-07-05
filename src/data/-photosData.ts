@@ -498,7 +498,7 @@ export const photos: Photo[] = [
   {
     image:
       "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032561/cau14_yjynmh.jpg",
-    title: "Cầu 14 - Km 1668 +00 ĐHCM",
+    title: "Cầu 110 - Km 1668 +00 ĐHCM",
     location: "📍 Ea H'leo, Đắk Lắk, Việt Nam",
     camera: "Canon 750D",
     lens: "25mm f/3.5",
@@ -786,7 +786,7 @@ export const photos: Photo[] = [
     image:
       "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032555/51_y9tngn.jpg",
     title: "Ngẫu hứng",
-    location: "📍 Montréal, Québec, Canada",
+    location: "📍 Beaconsfield, Québec, Canada",
     camera: "Canon 1200D",
     lens: "26mm f/5.6",
     iso: "100",
@@ -800,7 +800,7 @@ export const photos: Photo[] = [
     image:
       "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032556/52_o7pcw3.jpg",
     title: "Ngẫu hứng",
-    location: "📍 Montréal, Québec, Canada",
+    location: "📍 Beaconsfield, Québec, Canada",
     camera: "Canon 1200D",
     lens: "50mm f/5.6",
     iso: "100",
@@ -814,7 +814,7 @@ export const photos: Photo[] = [
     image:
       "https://res.cloudinary.com/rzyieqmp/image/upload/v1783032556/53_uh8rlf.jpg",
     title: "Ngẫu hứng",
-    location: "📍 Montréal, Québec, Canada",
+    location: "📍 Beaconsfield, Québec, Canada",
     camera: "Canon 1200D",
     lens: "50mm f/5.6",
     iso: "100",
