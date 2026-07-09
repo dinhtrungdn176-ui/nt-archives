@@ -233,7 +233,7 @@ function RootComponent() {
               {isPlaying ? "⏸" : "▶"}
             </button>
             <div className="flex flex-col w-[100px]">
-              <span className="truncate">Tầng Thượng 102 - Cá Hồi Hoang</span>
+              <span className="truncate">Promise - Laufey</span>
               <span>{formatTime(currentTime)}</span>
             </div>
           </div>

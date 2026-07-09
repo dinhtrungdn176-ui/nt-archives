@@ -317,7 +317,7 @@ function Footer() {
         <p>© &nbsp;Dinh Trung Nguyen</p>
         <div className="flex items-center gap-5">
           <a
-            href="https://www.instagram.com/by.ntrung/"
+            href="https://www.instagram.com/ntrung.archive/"
             target="_blank"
             rel="noreferrer"
             aria-label="Instagram"
