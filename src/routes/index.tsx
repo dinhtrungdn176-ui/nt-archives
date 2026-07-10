@@ -68,21 +68,25 @@ function Index() {
 function Header({ mode, setMode }: { mode: Mode; setMode: (m: Mode) => void }) {
   return (
     <header className="mx-auto max-w-5xl px-6 pt-10 sm:px-8 sm:pt-14">
-      {/* Grid này chia làm 2 cột: Cột trái chứa Logo+Tên, Cột phải chứa Menu */}
-      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-6">
-        {/* CỘT TRÁI: Logo và Tên */}
+      {/* Thay đổi grid: trên mobile để 1 cột, trên sm trở lên để 2 cột */}
+      <div className="flex flex-col sm:grid sm:grid-cols-[1fr_auto] items-start sm:items-end gap-6">
+        {/* CỘT TRÁI */}
         <div className="flex items-center gap-4 min-w-0">
-          <img src="/logo.png" alt="Logo" className="w-8 h-8 object-contain" />
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className="w-8 h-8 object-contain shrink-0"
+          />
           <div className="min-w-0">
-            <h1 className="text-base font-medium tracking-tight">
+            <h1 className="text-base font-medium tracking-tight whitespace-nowrap">
               nt-archives
             </h1>
             <p className="mt-1 text-sm text-neutral-500">Dinh Trung Nguyen</p>
           </div>
         </div>
 
-        {/* CỘT PHẢI: Menu điều hướng (Phải đảm bảo đoạn này còn tồn tại) */}
-        <nav className="flex shrink-0 items-center gap-4 text-sm">
+        {/* CỘT PHẢI: Menu */}
+        <nav className="flex shrink-0 items-center gap-4 text-sm w-full sm:w-auto justify-start sm:justify-end">
           <button
             onClick={() => setMode("journal")}
             className={mode === "journal" ? "font-bold" : "text-neutral-400"}
