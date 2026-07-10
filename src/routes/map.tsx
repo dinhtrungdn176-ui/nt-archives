@@ -72,7 +72,7 @@ function MapContent() {
     <div className="w-screen h-screen relative bg-neutral-50">
       <Link
         to="/"
-        className="absolute top-6 left-6 z-10 bg-white border border-neutral-200 px-4 py-2 font-mono text-[11px] shadow-sm rounded-sm"
+        className="absolute top-6 left-6 z-[9999] pointer-events-auto bg-white border border-neutral-200 px-4 py-2 font-mono text-[11px] shadow-sm rounded-sm"
       >
         ← Trở về
       </Link>
@@ -103,7 +103,7 @@ function MapContent() {
             </div>
             <div className="flex-1 flex flex-col justify-center space-y-4">
               <div>
-                <h2 className="text-xl font-bold tracking-tight">
+                <h2 className="text-xl font-bold tracking-tight uppercase">
                   {lightbox.title}
                 </h2>
                 <p className="text-neutral-500 text-[11px] mt-1">

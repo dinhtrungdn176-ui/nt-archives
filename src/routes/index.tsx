@@ -167,7 +167,7 @@ function Entry({
         <div className="space-y-6 min-w-0">
           {/* Phần 1: Tên & Địa điểm */}
           <div>
-            <h2 className="text-base font-medium tracking-tight">
+            <h2 className="text-base font-medium tracking-tight uppercase">
               {photo.title}
             </h2>
             <p className="mt-1 text-sm text-neutral-500">{photo.location}</p>
