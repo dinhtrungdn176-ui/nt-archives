@@ -1,95 +1,136 @@
-import { createFileRoute, Link } from "@tanstack/react-router"; // 👈 SỬA CHỖ NÀY: Thêm Link vào đây
-import { useEffect, useRef } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
 import { photos } from "../data/-photosData";
 
-// THAY ĐỔI 1: Thay thế bằng Public Access Token chuẩn của Mapbox
-const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
-
-function MapContent() {
+function MapboxContainer({
+  setLightbox,
+}: {
+  setLightbox: (photo: any) => void;
+}) {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
 
   useEffect(() => {
-    if (typeof window === "undefined" || !mapContainerRef.current) return;
+    const loadMapbox = async () => {
+      const mapboxgl = await import("mapbox-gl");
 
-    // Chèn trực tiếp thẻ link CSS để tránh bộ nén của Vite
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = "https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css";
-    document.head.appendChild(link);
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css";
+      document.head.appendChild(link);
 
-    // Nạp thư viện động dưới Client
-    import("mapbox-gl" as any)
-      .then((mapboxgl) => {
-        const mapbox = mapboxgl.default || mapboxgl;
-        mapbox.accessToken = MAPBOX_TOKEN;
+      const mapbox = mapboxgl.default || mapboxgl;
+      mapbox.accessToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
-        if (mapRef.current) return;
+      if (!mapContainerRef.current || mapRef.current) return;
 
-        // THAY ĐỔI 2: Sử dụng style bản đồ "streets-v12" có độ tương thích cao nhất
-        mapRef.current = new mapbox.Map({
-          container: mapContainerRef.current,
-          // THAY ĐỔI 1: Chuyển sang style cơ bản nhất "outdoors-v12" hoặc "light-v11" chuẩn
-          style: "mapbox://styles/fragmentsbytrung/cmr7h7ce3000l01qih967arbd",
-          center: [-73.5673, 45.5017],
-          zoom: 11,
-          trackResize: true,
-        });
-
-        // Ép bản đồ vẽ lại layout ngay khi nạp xong
-        mapRef.current.on("load", () => {
-          mapRef.current.resize();
-        });
-
-        // Cắm ghim dữ liệu ảnh của bạn
-        const mapPhotos = photos.filter((p) => p.lat && p.lng);
-        mapPhotos.forEach((photo) => {
-          const el = document.createElement("div");
-          el.className = "cursor-pointer text-2xl filter drop-shadow-md";
-          el.innerHTML = "📍";
-
-          const popup = new mapbox.Popup({ offset: 25 }).setHTML(`
-          <div style="padding: 4px; font-family: monospace; min-width: 120px; text-transform: uppercase; font-size: 11px;">
-            <img src="${photo.image}" alt="${photo.title}" style="width: 120px; height: 80px; object-fit: cover; border-radius: 2px;" />
-            <h3 style="font-weight: bold; margin-top: 6px; color: #111; margin-bottom: 2px;">${photo.title}</h3>
-            <p style="color: #666; margin: 0;">${photo.location}</p>
-          </div>
-        `);
-
-          new mapbox.Marker(el)
-            .setLngLat([photo.lng!, photo.lat!])
-            .setPopup(popup)
-            .addTo(mapRef.current);
-        });
-      })
-      .catch((err) => {
-        console.error("Lỗi khởi tạo bản đồ:", err);
+      mapRef.current = new mapbox.Map({
+        container: mapContainerRef.current,
+        style: "mapbox://styles/fragmentsbytrung/cmr7h7ce3000l01qih967arbd",
+        center: [-73.5673, 45.5017],
+        zoom: 11,
       });
 
-    return () => {
-      if (mapRef.current) {
-        mapRef.current.remove();
-        mapRef.current = null;
-      }
-      if (document.head.contains(link)) {
-        document.head.removeChild(link);
-      }
+      mapRef.current.on("load", () => {
+        photos.forEach((photo) => {
+          if (photo.lat && photo.lng) {
+            const el = document.createElement("div");
+            el.innerHTML = `
+              <div class="thumbnail-container">
+                <img src="${photo.image}" class="thumbnail" />
+              </div>
+            `;
+
+            new mapboxgl.Marker(el)
+              .setLngLat([photo.lng, photo.lat])
+              .addTo(mapRef.current);
+
+            el.addEventListener("click", () => {
+              setLightbox(photo);
+            });
+          }
+        });
+      });
     };
+
+    loadMapbox();
+    return () => mapRef.current?.remove();
+  }, [setLightbox]);
+
+  return <div ref={mapContainerRef} className="w-full h-full" />;
+}
+
+function MapContent() {
+  const [isClient, setIsClient] = useState(false);
+  const [lightbox, setLightbox] = useState<any>(null);
+
+  useEffect(() => {
+    setIsClient(true);
   }, []);
 
   return (
     <div className="w-screen h-screen relative bg-neutral-50">
-      {/* 🔴 SỬA CHỖ NÀY: Thay thẻ <a> bằng <Link> và href bằng to */}
       <Link
         to="/"
-        className="absolute top-6 left-6 z-10 bg-white border border-neutral-200 px-4 py-2 font-mono text-[11px] tracking-widest uppercase hover:bg-neutral-50 transition-colors shadow-sm rounded-sm"
+        className="absolute top-6 left-6 z-10 bg-white border border-neutral-200 px-4 py-2 font-mono text-[11px] shadow-sm rounded-sm"
       >
         ← Trở về
       </Link>
-      <div ref={mapContainerRef} className="w-full h-full" />
+
+      {isClient ? (
+        <MapboxContainer setLightbox={setLightbox} />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center font-mono">
+          Đang tải bản đồ...
+        </div>
+      )}
+
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-neutral-900/60 backdrop-blur-[6px] p-4 md:p-10 cursor-pointer"
+          onClick={() => setLightbox(null)}
+        >
+          <div
+            className="bg-white p-8 rounded-sm shadow-sm border border-neutral-200 flex flex-col md:flex-row gap-8 max-w-5xl w-full cursor-default font-mono"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex-1">
+              <img
+                src={lightbox.image}
+                className="w-full h-auto object-cover rounded-sm"
+                alt={lightbox.title}
+              />
+            </div>
+            <div className="flex-1 flex flex-col justify-center space-y-4">
+              <div>
+                <h2 className="text-xl font-bold tracking-tight">
+                  {lightbox.title}
+                </h2>
+                <p className="text-neutral-500 text-[11px] mt-1">
+                  📍 {lightbox.location}
+                </p>
+              </div>
+              <div className="text-[11px] border-t border-neutral-100 pt-4 space-y-2 text-neutral-600">
+                <p>
+                  📷 {lightbox.camera} | {lightbox.lens}
+                </p>
+                <p>
+                  ISO: {lightbox.iso} | Shutter: {lightbox.shutterSpeed}
+                </p>
+                <p>📅 {lightbox.date}</p>
+              </div>
+              {lightbox.caption && (
+                <p className="text-[11px] italic text-neutral-700 leading-relaxed">
+                  "{lightbox.caption}"
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
-}
+} // <--- DẤU NÀY LÀ CÁI BẠN THIẾU
 
 export const Route = createFileRoute("/map")({
   ssr: false,

@@ -78,7 +78,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           content: "Kho lưu trữ nhiếp ảnh tối giản cá nhân.",
         },
       ],
-      links: [{ rel: "stylesheet", href: appCss }],
+      links: [
+        { rel: "stylesheet", href: appCss },
+        // Thêm các dòng này (thay 'logo.png' bằng tên file thật của bạn)
+        { rel: "icon", href: "/favicon.png" },
+        { rel: "apple-touch-icon", href: "/favicon.png" },
+      ],
     }),
     shellComponent: RootShell,
     component: RootComponent,
@@ -217,24 +222,27 @@ function RootComponent() {
             onMouseDown={handleMouseDown}
             style={{
               position: "fixed",
-              left: position.x || 24,
+              left: position.x || 24, // Vị trí mặc định
               top: position.y || "auto",
               bottom: position.y ? "auto" : "24px",
               right: position.x ? "auto" : "24px",
               cursor: isDragging ? "grabbing" : "grab",
               zIndex: 999,
             }}
-            className="flex items-center gap-2 bg-neutral-900/90 backdrop-blur-md text-white px-3 py-2 rounded-full shadow-lg border border-neutral-800 font-mono text-[10px] select-none"
+            // Sửa className ở đây:
+            className="flex items-center gap-3 bg-neutral-900/90 backdrop-blur-md text-white px-4 py-2 rounded-full shadow-lg border border-neutral-800 font-mono text-[10px] select-none w-fit"
           >
             <button
               onClick={togglePlay}
-              className="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center"
+              className="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center shrink-0"
             >
               {isPlaying ? "⏸" : "▶"}
             </button>
-            <div className="flex flex-col w-[100px]">
-              <span className="truncate">Promise - Laufey</span>
-              <span>{formatTime(currentTime)}</span>
+
+            {/* Đặt chiều rộng cố định hoặc để tự động co dãn theo nội dung */}
+            <div className="flex flex-col truncate max-w-[120px]">
+              <span className="truncate font-bold">Promise - Laufey</span>
+              <span className="opacity-70">{formatTime(currentTime)}</span>
             </div>
           </div>
         </>

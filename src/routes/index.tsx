@@ -28,37 +28,35 @@ function Index() {
   const [mode, setMode] = useState<Mode>("journal");
   const [lightbox, setLightbox] = useState<Photo | null>(null);
 
-  useEffect(() => {
-    if (!lightbox) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightbox(null);
-    };
-    window.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [lightbox]);
-
   return (
-    // Đã thêm font-mono, tracking-widest, uppercase để tạo vibe chữ mỏng thưa của Moment
-    <div className="min-h-screen bg-white text-neutral-900 antialiased font-mono tracking-widest uppercase text-[11px]">
-      <Header mode={mode} setMode={setMode} />
+    <div className="min-h-screen bg-white text-neutral-900 font-mono text-[11px] antialiased">
+      {/* 1. Đưa Header vào một div cố định ở top */}
+      <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100/50">
+        <Header mode={mode} setMode={setMode} />
+      </div>
 
-      <main className="mx-auto max-w-5xl px-6 pb-32 pt-12 sm:px-8">
-        {/* Tạo một bản sao mảng đã được đảo ngược trật tự ngay từ gốc */}
-        {(() => {
-          const reversedPhotos = [...photos].reverse();
-          return mode === "journal" ? (
-            <Journal photos={reversedPhotos} onOpen={setLightbox} />
-          ) : (
-            <Overview photos={reversedPhotos} onOpen={setLightbox} />
-          );
-        })()}
-      </main>
+      {/* 2. Cấu trúc grid giữ nguyên, nhưng có thể bỏ khoảng cách pt-12 nếu thấy dư thừa */}
+      <div className="mx-auto max-w-5xl px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-[1fr_64px] gap-12 items-start w-full">
+        <main className="min-w-0 pb-32 pt-12">
+          {(() => {
+            const reversedPhotos = [...photos].reverse();
+            return mode === "journal" ? (
+              <Journal photos={reversedPhotos} onOpen={setLightbox} />
+            ) : (
+              <Overview photos={reversedPhotos} onOpen={setLightbox} />
+            );
+          })()}
+        </main>
 
-      <Footer />
+        {/* 3. Đẩy sticky top xuống thấp hơn một chút để không bị dính sát header */}
+        <aside className="sticky top-32 hidden lg:block pt-12 shrink-0">
+          <Footer />
+        </aside>
+      </div>
+
+      <div className="lg:hidden px-6 pb-16">
+        <Footer />
+      </div>
 
       {lightbox && (
         <Lightbox photo={lightbox} onClose={() => setLightbox(null)} />
@@ -70,48 +68,36 @@ function Index() {
 function Header({ mode, setMode }: { mode: Mode; setMode: (m: Mode) => void }) {
   return (
     <header className="mx-auto max-w-5xl px-6 pt-10 sm:px-8 sm:pt-14">
+      {/* Grid này chia làm 2 cột: Cột trái chứa Logo+Tên, Cột phải chứa Menu */}
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-6">
-        <div className="min-w-0">
-          <h1 className="text-base font-medium tracking-tight">nt-archives</h1>
-          <p className="mt-1 text-sm text-neutral-500">Dinh Trung Nguyen</p>
+        {/* CỘT TRÁI: Logo và Tên */}
+        <div className="flex items-center gap-4 min-w-0">
+          <img src="/logo.png" alt="Logo" className="w-8 h-8 object-contain" />
+          <div className="min-w-0">
+            <h1 className="text-base font-medium tracking-tight">
+              nt-archives
+            </h1>
+            <p className="mt-1 text-sm text-neutral-500">Dinh Trung Nguyen</p>
+          </div>
         </div>
 
-        {/* THANH MENU ĐIỀU HƯỚNG ĐÃ VIỆT HÓA */}
+        {/* CỘT PHẢI: Menu điều hướng (Phải đảm bảo đoạn này còn tồn tại) */}
         <nav className="flex shrink-0 items-center gap-4 text-sm">
           <button
             onClick={() => setMode("journal")}
-            className={
-              "transition-colors " +
-              (mode === "journal"
-                ? "text-neutral-900 font-bold"
-                : "text-neutral-400 hover:text-neutral-700")
-            }
+            className={mode === "journal" ? "font-bold" : "text-neutral-400"}
           >
-            Nhật ký {/* Đổi Journal thành Nhật ký */}
+            Nhật ký
           </button>
-
           <span className="text-neutral-300">/</span>
-
           <button
             onClick={() => setMode("overview")}
-            className={
-              "transition-colors " +
-              (mode === "overview"
-                ? "text-neutral-900 font-bold"
-                : "text-neutral-400 hover:text-neutral-700")
-            }
+            className={mode === "overview" ? "font-bold" : "text-neutral-400"}
           >
-            Kho ảnh {/* Đổi Overview thành Kho ảnh */}
+            Kho ảnh
           </button>
-
           <span className="text-neutral-300">/</span>
-
-          {/* NÚT BẢN ĐỒ MỚI TOANH DÙNG LINK ĐỂ CHUYỂN ROUTE TRỰC TIẾP */}
-          <Link
-            to="/map"
-            search={{}}
-            className="text-neutral-400 hover:text-neutral-700 transition-colors cursor-pointer [&.active]:text-neutral-900 [&.active]:font-bold"
-          >
+          <Link to="/map" className="text-neutral-400 hover:text-neutral-700">
             Bản đồ
           </Link>
         </nav>
@@ -311,38 +297,30 @@ function Lightbox({ photo, onClose }: { photo: Photo; onClose: () => void }) {
 
 function Footer() {
   return (
-    <footer className="mx-auto max-w-5xl px-6 pb-16 sm:px-8">
-      <div className="mt-8 h-px w-full bg-neutral-100" />
-      <div className="mt-8 flex flex-wrap items-center justify-between gap-4 text-xs text-neutral-500">
-        <p>© &nbsp;Dinh Trung Nguyen</p>
-        <div className="flex items-center gap-5">
-          <a
-            href="https://www.instagram.com/ntrung.archive/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Instagram"
-            className="transition-colors hover:text-neutral-900"
-          >
-            <IGIcon />
-          </a>
-          <a
-            href="https://www.facebook.com/nguyen.trung.519425?locale=vi_VN"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Facebook"
-            className="transition-colors hover:text-neutral-900"
-          >
-            <FBIcon />
-          </a>
-          <a
-            href="mailto:dinhtrungdn176@gmail.com"
-            aria-label="Email"
-            className="transition-colors hover:text-neutral-900"
-          >
-            <MailIcon />
-          </a>
-        </div>
-      </div>
+    // Đảm bảo không có class làm nó bị đẩy ra ngoài
+    <footer className="flex flex-col items-center gap-6 w-16">
+      <a
+        href="https://www.instagram.com/ntrung.archive/"
+        target="_blank"
+        rel="noreferrer"
+        className="hover:text-neutral-900 transition-colors"
+      >
+        <IGIcon />
+      </a>
+      <a
+        href="https://www.facebook.com/nguyen.trung.519425?locale=vi_VN"
+        target="_blank"
+        rel="noreferrer"
+        className="hover:text-neutral-900 transition-colors"
+      >
+        <FBIcon />
+      </a>
+      <a
+        href="mailto:dinhtrungdn176@gmail.com"
+        className="hover:text-neutral-900 transition-colors"
+      >
+        <MailIcon />
+      </a>
     </footer>
   );
 }
