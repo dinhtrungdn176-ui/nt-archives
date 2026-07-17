@@ -27,11 +27,11 @@ type Mode = "journal" | "overview";
 function Index() {
   const [mode, setMode] = useState<Mode>("journal");
   const [lightbox, setLightbox] = useState<Photo | null>(null);
-
+  const [hasEntered, setHasEntered] = useState(false);
   return (
-    <div className="min-h-screen bg-white text-neutral-900 font-mono text-[11px] antialiased">
+    <div className="min-h-screen text-neutral-900 font-mono text-[11px] antialiased">
       {/* 1. Đưa Header vào một div cố định ở top */}
-      <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100/50">
+      <div className="sticky top-0 z-50 bg-background/60 backdrop-blur-xl border-b border-transparent">
         <Header mode={mode} setMode={setMode} />
       </div>
 
@@ -67,8 +67,7 @@ function Index() {
 
 function Header({ mode, setMode }: { mode: Mode; setMode: (m: Mode) => void }) {
   return (
-    <header className="mx-auto max-w-5xl px-6 pt-10 sm:px-8 sm:pt-14">
-      {/* Thay đổi grid: trên mobile để 1 cột, trên sm trở lên để 2 cột */}
+    <header className="mx-auto max-w-5xl px-6 pt-6 sm:px-8 sm:pt-10">
       <div className="flex flex-col sm:grid sm:grid-cols-[1fr_auto] items-start sm:items-end gap-6">
         {/* CỘT TRÁI */}
         <div className="flex items-center gap-4 min-w-0">
@@ -78,35 +77,50 @@ function Header({ mode, setMode }: { mode: Mode; setMode: (m: Mode) => void }) {
             className="w-8 h-8 object-contain shrink-0"
           />
           <div className="min-w-0">
-            <h1 className="text-base font-medium tracking-tight whitespace-nowrap">
+            <h1 className="text-base font-medium tracking-tight whitespace-nowrap text-neutral-900">
               nt-archives
             </h1>
-            <p className="mt-1 text-sm text-neutral-500">Dinh Trung Nguyen</p>
+            <p className="mt-1 text-sm text-neutral-600">Dinh Trung Nguyen</p>
           </div>
         </div>
 
-        {/* CỘT PHẢI: Menu */}
+        {/* CỘT PHẢI: Menu - Đồng bộ hóa 3 mục */}
         <nav className="flex shrink-0 items-center gap-4 text-sm w-full sm:w-auto justify-start sm:justify-end">
+          {/* Nhật ký */}
           <button
             onClick={() => setMode("journal")}
-            className={mode === "journal" ? "font-bold" : "text-neutral-400"}
+            className={
+              mode === "journal"
+                ? "font-bold text-neutral-900"
+                : "text-neutral-900 hover:text-neutral-500"
+            }
           >
             Nhật ký
           </button>
-          <span className="text-neutral-300">/</span>
+
+          <span className="text-neutral-900">/</span>
+
+          {/* Kho ảnh */}
           <button
             onClick={() => setMode("overview")}
-            className={mode === "overview" ? "font-bold" : "text-neutral-400"}
+            className={
+              mode === "overview"
+                ? "font-bold text-neutral-900"
+                : "text-neutral-900 hover:text-neutral-500"
+            }
           >
             Kho ảnh
           </button>
-          <span className="text-neutral-300">/</span>
-          <Link to="/map" className="text-neutral-400 hover:text-neutral-700">
+
+          <span className="text-neutral-900">/</span>
+
+          {/* Bản đồ - Đã chỉnh cho đồng bộ với 2 mục kia */}
+          <Link to="/map" className="text-neutral-900 hover:text-neutral-500">
             Bản đồ
           </Link>
         </nav>
       </div>
-      <div className="mt-10 h-px w-full bg-neutral-100" />
+      <div className="mt-6 h-px w-full bg-neutral-200" />
     </header>
   );
 }
@@ -224,8 +238,12 @@ function Overview({
 }) {
   return (
     <div className="pt-8">
-      <div className="columns-1 gap-2 sm:columns-2 lg:columns-3 [&>*]:mb-2">
-        {/* Giữ nguyên photos.map để nhận dữ liệu đã xử lý từ hàm Index */}
+      {/* 
+         - grid-cols-3: giữ 3 cột ngang.
+         - grid-auto-flow: dense: Đây là chìa khóa để nó tự lấp đầy khoảng trống.
+         - items-start: giữ ảnh không bị kéo dãn.
+      */}
+      <div className="grid grid-cols-3 gap-4">
         {photos.map((p, i) => (
           <button
             key={i}
@@ -233,11 +251,12 @@ function Overview({
             className="group block w-full overflow-hidden bg-neutral-50"
             aria-label={`Open ${p.title}`}
           >
+            {/* Ảnh tự giữ tỷ lệ gốc, không bị crop */}
             <img
               src={p.image}
               alt={p.title}
               loading="lazy"
-              className="h-auto w-full transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              className="w-full h-auto block transition-transform duration-500 ease-out group-hover:scale-[1.02]"
             />
           </button>
         ))}

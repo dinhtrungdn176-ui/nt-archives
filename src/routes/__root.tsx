@@ -106,14 +106,11 @@ function RootShell({ children }: { children: ReactNode }) {
     </html>
   );
 }
-
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const [hasEntered, setHasEntered] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(0.5);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
 
@@ -124,40 +121,15 @@ function RootComponent() {
   useEffect(() => {
     const audio = new Audio("/mysong.mp3");
     audio.loop = true;
-    audio.volume = volume;
+    audio.volume = 0.5;
     const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
-    const handleLoadedMetadata = () => setDuration(audio.duration);
     audio.addEventListener("timeupdate", handleTimeUpdate);
-    audio.addEventListener("loadedmetadata", handleLoadedMetadata);
     audioRef.current = audio;
     return () => {
       audio.removeEventListener("timeupdate", handleTimeUpdate);
-      audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
       audio.pause();
     };
   }, []);
-
-  useEffect(() => {
-    const handleMove = (clientX: number, clientY: number) => {
-      if (!isDragging || !dragRef.current) return;
-      let newX = clientX - offsetRef.current.x;
-      let newY = clientY - offsetRef.current.y;
-      const rect = dragRef.current.getBoundingClientRect();
-      newX = Math.max(0, Math.min(newX, window.innerWidth - rect.width));
-      newY = Math.max(0, Math.min(newY, window.innerHeight - rect.height));
-      setPosition({ x: newX, y: newY });
-    };
-    const handleMouseMove = (e: MouseEvent) => handleMove(e.clientX, e.clientY);
-    const handleMouseUp = () => setIsDragging(false);
-    if (isDragging) {
-      window.addEventListener("mousemove", handleMouseMove);
-      window.addEventListener("mouseup", handleMouseUp);
-    }
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
-    };
-  }, [isDragging]);
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     if (
@@ -172,14 +144,31 @@ function RootComponent() {
     }
   };
 
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!isDragging || !dragRef.current) return;
+      setPosition({
+        x: e.clientX - offsetRef.current.x,
+        y: e.clientY - offsetRef.current.y,
+      });
+    };
+    const handleMouseUp = () => setIsDragging(false);
+    if (isDragging) {
+      window.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("mouseup", handleMouseUp);
+    }
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, [isDragging]);
+
   const handleEnter = () => {
     setHasEntered(true);
-    if (audioRef.current) {
-      audioRef.current
-        .play()
-        .then(() => setIsPlaying(true))
-        .catch((err) => console.log(err));
-    }
+    audioRef.current
+      ?.play()
+      .then(() => setIsPlaying(true))
+      .catch(console.error);
   };
 
   const togglePlay = () => {
@@ -194,7 +183,6 @@ function RootComponent() {
   };
 
   const formatTime = (secs: number) => {
-    if (isNaN(secs)) return "0:00";
     const minutes = Math.floor(secs / 60);
     const seconds = Math.floor(secs % 60);
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
@@ -203,16 +191,27 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {!hasEntered ? (
-        <div className="fixed inset-0 bg-neutral-950 flex flex-col items-center justify-center text-white font-mono z-[9999]">
-          <h1 className="text-sm tracking-[0.3em] uppercase mb-8 text-neutral-400 select-none animate-pulse">
-            NT–ARCHIVES
-          </h1>
-          <button
-            onClick={handleEnter}
-            className="text-xs tracking-widest uppercase border border-neutral-700 px-6 py-3 hover:bg-white hover:text-black transition-all"
-          >
-            Bước vào / Enter
-          </button>
+        <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center">
+          <video
+            src="/intro.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover blur-[6px]"
+          />
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="relative z-10 flex flex-col items-center">
+            <h1 className="text-sm tracking-[0.3em] uppercase mb-8 text-white font-bold select-none animate-pulse">
+              NT–ARCHIVES
+            </h1>
+            <button
+              onClick={handleEnter}
+              className="text-xs tracking-widest uppercase border border-white/60 text-white px-8 py-3 hover:bg-white hover:text-black transition-all"
+            >
+              Bước vào / Enter
+            </button>
+          </div>
         </div>
       ) : (
         <>
@@ -222,15 +221,14 @@ function RootComponent() {
             onMouseDown={handleMouseDown}
             style={{
               position: "fixed",
-              left: position.x || 24, // Vị trí mặc định
+              left: position.x || 24,
               top: position.y || "auto",
               bottom: position.y ? "auto" : "24px",
               right: position.x ? "auto" : "24px",
               cursor: isDragging ? "grabbing" : "grab",
               zIndex: 999,
             }}
-            // Sửa className ở đây:
-            className="flex items-center gap-3 bg-neutral-900/90 backdrop-blur-md text-white px-4 py-2 rounded-full shadow-lg border border-neutral-800 font-mono text-[10px] select-none w-fit"
+            className="flex items-center gap-3 bg-neutral-900/90 backdrop-blur-md text-white px-4 py-2 rounded-full shadow-lg border border-neutral-800 font-mono text-[11px] select-none w-fit"
           >
             <button
               onClick={togglePlay}
@@ -238,8 +236,6 @@ function RootComponent() {
             >
               {isPlaying ? "⏸" : "▶"}
             </button>
-
-            {/* Đặt chiều rộng cố định hoặc để tự động co dãn theo nội dung */}
             <div className="flex flex-col truncate max-w-[120px]">
               <span className="truncate font-bold">Promise - Laufey</span>
               <span className="opacity-70">{formatTime(currentTime)}</span>
