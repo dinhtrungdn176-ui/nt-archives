@@ -323,7 +323,7 @@ function Footer() {
     // Đảm bảo không có class làm nó bị đẩy ra ngoài
     <footer className="flex flex-col items-center gap-6 w-16">
       <a
-        href="https://www.instagram.com/ntrung.archive/"
+        href="https://www.instagram.com/_nt.arch/"
         target="_blank"
         rel="noreferrer"
         className="hover:text-neutral-900 transition-colors"
