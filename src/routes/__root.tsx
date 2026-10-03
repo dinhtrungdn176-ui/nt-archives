@@ -237,7 +237,7 @@ function RootComponent() {
               {isPlaying ? "⏸" : "▶"}
             </button>
             <div className="flex flex-col truncate max-w-[120px]">
-              <span className="truncate font-bold">Promise - Laufey</span>
+              <span className="truncate font-bold">Emotional Rain</span>
               <span className="opacity-70">{formatTime(currentTime)}</span>
             </div>
           </div>
